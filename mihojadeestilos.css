@@ -1,0 +1,43 @@
+#cabeceraweb{
+    background-color: #3366FF;
+}
+
+#navegacionprincipal{
+    background-color: red;
+}
+
+/*la barra lateral es aside OJO*/
+#barralateral{
+    background-color: green;
+    float: left;
+    /*La propiedad "float: left;" permite que el aside que hemos definido se vaya a la izquierda, además de ello va a provocar que la etiqueta section suba rodeando a la etiqueta aside;
+    Es importante recalcar que el tamaño en ancchura de la etiqueta aside con esta propiedad se reduce al tamaño del texto que contenga esta etiqueta
+    */
+    height: 900px;
+    /*la propiedad height hace incrementar o decrementar el alto según el valor que le demos a la etiqueta, la clase o el id*/
+}
+
+/*el contenido principal de mi página web es section*/
+#contenidoprincipal{
+    background-color: purple;
+    margin-left: 210px;
+    padding-left: 12px;
+    /*La propiedad padding-left: permite correr el margen interno izquierdo del texto que hayamos escrito*/
+    padding-top: 12px;
+    /*La propiedad padding-top: permite correr el margen interno superior del texto que hayamos escrito*/
+}
+
+#pieprincipal{
+    background-color: yellow;
+    clear: both;
+    /*La propiedad "clear: both;" hace que la etiqueta del footer tome en cuenta el aside no como un float sino como un bloque por ende lo toma en cuenta y pasa debajo*/
+    margin-top: 40px;
+    /*margin-top sirve para darle un margen superior a la etiqueta o al elemento que se lo hayamos aplicado*/
+}
+
+li{
+    background-color: yellow;
+    display: inline;
+    /*la propiedad "display: inline;" es importantísima ya que nos permite colocar los valores uno al lado del otro y no uno abajo del otro, osea, cambia las estructuras del bloque por una linea al lado de la otra*/
+    
+}

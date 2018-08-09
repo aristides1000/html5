@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="description" content="Página de enseñanza html5"/>
+        <meta name="keywords" content="html5, css3, Javascript, diseño web"/>
+
+        <title>Página de programación en HTML5</title>
+
+        <link rel="stylesheet" href="mihojadeestilos.css"/>
+
+    </head>
+
+    <body>
+        <header id="cabeceraweb">
+            <h1>Este sería el título de nuestra web</h1>
+        </header>
+
+        <nav id="navegacionprincipal">
+            <ul>
+                <li>Quiénes somos</li>
+                <li>Nuestros Productos</li>
+                <li>Contáctanos</li>
+                <li>Precios</li>
+            </ul>
+        </nav>
+
+        
+        <!--La etiqueta "aside" siempre representa la barra lateral de cualquier documento web-->
+        <aside id="barralateral">
+            <blockquote>Primer Elemento</blockquote>
+            <blockquote>Segundo Elemento</blockquote>
+            <blockquote>Tercer Elemento</blockquote>
+        </aside>
+
+        <!--es el cuerpo principal y siempre va a la derecha de mi documento-->
+        <section id="contenidoprincipal">
+
+            <article>
+                <header>
+                    <hgroup>
+                        <h2>
+                            Título de la noticia 1
+                        </h2>
+                        <h3>
+                            Subtítulo de la noticia 1
+                        </h3>
+                    </hgroup>    
+                </header>
+                
+                <figure>
+                    <img src="imagenes/bosque.jpg"/>
+                <figcaption>
+                    <!--La etiqueta figcaption sirve para colocarle pie de imagen a las imágenes-->
+                    Paisaje de un bosque
+                </figcaption>
+                </figure>
+                
+                <p><mark>Noticia 1</mark></p>
+                <p>Seguimos hablando de <em>noticia 1</em></p>
+                <p>Terminamos de hablar de la <strong>noticia 1</strong></p>
+
+                <footer>
+                    <p>
+                        Comentarios de usuarios
+                    </p>
+                </footer>
+            </article>
+
+            <article>
+
+                <header>
+                    <h2>
+                        Título de la noticia 2
+                    </h2>
+                </header>
+
+                <p><cite>Lo que el viento se llevó</cite></p>
+                <p>Una de las películas más largas en la historia del cine es <cite>Lo que el viento se llevó</cite></p>
+                <p>Terminamos de hablar de la noticia 2</p>
+                
+                <footer>
+                    <p>Comentarios</p>
+                </footer>
+            </article>
+
+            <article>
+                
+                <header>
+                    <hgroup>
+                        <h2>Título de la noticia 3</h2>
+                        <h3>Subtítulo de la noticia 3</h3>
+                    </hgroup>
+                    <time datetime="2014/01/31" pubdate>Noticia publicada el 31/01/2014</time>
+                </header>
+                
+                <p>Noticia 3</p>
+                <p>Seguimos hablando de noticia 3</p>
+                <p>Terminamos de hablar de la noticia 3</p>
+            </article>
+
+        </section>
+
+        <footer id="pieprincipal">
+            <small>Derechos reservados</small> <address>Tfno:952569874</address>    
+        </footer>
+
+    </body>
+
+</html>

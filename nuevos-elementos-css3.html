@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>prueba</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            /*
+            p[name*="ele"]{
+                /*con el atributo [name^="mis"] específicamente el valor ^= hacemos que todos los elementos que empiecen por esas letras van a tomar esas caracteríticas en el css, osea en el atributo style*/
+                /*con el atributo [name$="mis"] específicamente el valor $= hacemos que todos los elementos que terminen por esas letras van a tomar esas caracteríticas en el css, osea en el atributo style*/
+                /*con el atributo [name*="ele"] específicamente el valor *= hacemos que todos los elementos que tengan en cualquier parte esas letras van a tomar esas caracteríticas en el css, osea en el atributo style*/
+                /*
+                color: #f00;    
+            }
+            */
+            
+            p:nth-child(2){
+                /*la propiedad :nth-child(2) lo que hace es que le aplica el estilo al segundo elemento, OJO, siempre y cuando sean elementos hermanos, para que sean hermanos tenemos que tener en cuenta la estructura de arbol de html, son hijas por que la etiqueta body es su madre y por ende son hermanas*/
+                color: #f00;
+            }
+        </style>
+    </head>
+    <body>
+<!--       
+   /*esto lo hice con la finalidad de ver los cambios en las propiedades name por el style*/
+        <p name="miselementos">Hola</p>
+        <p name="miselementos">Adiós</p>
+        <p name="estilos">Febrero</p>
+-->
+        <p>Hola</p>
+        <p>Adiós</p>
+        <p>Febrero</p>
+    </body>
+</html>
