@@ -41,7 +41,17 @@ pseudoclases*/
 /*para darle estilos a los ID se debe colocar al comienzo el caracter # seguido del id que le hayamos colocado*/
             #principal{
                 width: 500px;
+                /*
                 background-color: blue;
+                */
+                /*
+                background: -moz-linear-gradient(top, #00F, #3FF);*//*-moz- es para firefox*/ 
+                /*background: -webkit-linear-gradient(left, #00F 1%, #3FF 99%);*//*-webkit- es para google chrome*//*si es top es desde arriba hacia abajo se aplica el color, si se coloca bottom es desde abajo hacia arriba, left de izquierda a derecha, right es de derecha a izquierda*/
+                /*Si le colocamos 50% 50% toma como valores sólidos los colores en sus respectivos porcentajes*//*si el primer porcentaje es más grande que el segundo va a agarrar el color completamente sólido*/
+                background: -webkit-radial-gradient(center, ellipse, #F00, #CF0);/*circle es para decirle que el degradado va en círculo, y no en elipse*/
+                /*ellipse es para decirle que el degradado va en elipse*/
+                /*background: -ms-linear-gradient(top, #00F, #3FF);*//*-ms- es para internet explorer*/
+                /*background: -o-linear-gradient(top, #00F, #3FF);*//*-o- es para el navegador de opera*/
                 text-align: center;
                 margin: 15px auto;/*Esto quiere decir que va a aplicar un marge superior e inferior de 15px y un margen auto desde la izquierda y la derecha ¡¡¡Sea cual sea la resolución o tamaño de pantalla!!!*/
                 /*Vamos a darle un espaciado interno con la propiedad padding*/
@@ -52,11 +62,39 @@ pseudoclases*/
                 border-radius: 20px 5px 15px 40px;
                 /*Para la aplicación del sombreado de la caja*/
                 box-shadow: #999 15px 5px 5px;/*el primer px es el desplazamiento horizontal y el segundo es el desplazamiento vertical el 3er px es el nivel de la difuminación de la sombra*/
+                /*outline: 2px dashed #00F;*//*Esto es para colocarle un borde de 2px grosor exterior de la caja con guiones por la propiedad dashed de color #00F que es un azul*/
+                /*outline-offset: 10px;*//*esto es para separar en px o em el borde el marco dela caja outline*/
+
+                /*Con esta propiedad podemos escalar cualquier elemento que queramos*/
+                /*toma en cuenta siempre el navegador en el que estemos trabajando*/
+                /*-webkit-transform:scale(1);*//*dónde el 1 es la escala original, más abajo de 1 es una escala pequeña, más arriba de 1 es la escala grande*/
+                /*-webkit-transform:scale(1,-1);*//*con el segundo valor en -1 volteas el elemento dándole un efecto espejo*/
+
+                /*Con esta característica lograremos rotar el elemento que queramos rotar en grados*/
+                
+                /*-webkit-transform:rotate(30deg);*//*30deg es una rotación de 30 grados*/
+
+                /*para cambiar la perspectiva*/
+                /*-webkit-transform:skew(40deg);*//*esto acuesta el elemento*/
+                
+                /*-webkit-transform:rotate(5deg);*/
+                -webkit-transition:-webkit-transform 1s ease 0.1s;/*1s es 1 segundo, ease es un efecto de esa propiedad y el último valor es el tiempo que tarda en ejecutarse, que en este caso tardará 0.5 segundos*/
+            }
+
+            #principal:hover{
+                -webkit-transform:rotate(5deg);
+            }
+
+            @font-face{
+                font-family:'MiPropiaFuente';
+                src:url('BAUHS93.TTF');
             }
 
             #titulo{
-                font: bold 36px Verdana, Geneva, sans-serif;
+                font: bold 36px 'MiPropiaFuente';
                 text-shadow: #0F0 6px 3px 5px;/*el primer px es el desplazamiento horizontal y el segundo es el desplazamiento vertical el 3er px es el nivel de la difuminación de la sombra*/
+                color: rgba(0,0,0,0.9);/*rgba quiere decir, red green blue alpha, el red, el blue y el green van del 0 a 255 y el alpha va del 0 al 1 comprendiendo que el 0 es 100% transparente y el 1 es 100% opaco, quiere decir que el valor 0.5 es medio transparente*/
+                /*0.5 esto es semitransparencia*/
             }
         </style>
     </head>
