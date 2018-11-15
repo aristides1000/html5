@@ -39,5 +39,4 @@ li{
     background-color: yellow;
     display: inline;
     /*la propiedad "display: inline;" es importantísima ya que nos permite colocar los valores uno al lado del otro y no uno abajo del otro, osea, cambia las estructuras del bloque por una linea al lado de la otra*/
-    
 }

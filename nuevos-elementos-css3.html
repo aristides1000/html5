@@ -15,9 +15,48 @@
             }
             */
             
-            p:nth-child(2){
+            /*
+            p:nth-child(even){
+                */
                 /*la propiedad :nth-child(2) lo que hace es que le aplica el estilo al segundo elemento, OJO, siempre y cuando sean elementos hermanos, para que sean hermanos tenemos que tener en cuenta la estructura de arbol de html, son hijas por que la etiqueta body es su madre y por ende son hermanas*/
+                /*En este caso va a tomar todos los hermanos de la clase p que se encentren dentro del body*/
+                /*la propiedad :nth-child(odd) le aplica la propiedad a todos los hermanos p impares*/
+                /*la propiedad :nth-child(even) le aplica la propiedad a todos los hermanos p pares*/
+                /*
                 color: #f00;
+            }*/
+            
+            /*
+            p:only-child{
+                color: #F00;*/
+/*La propiedad :first-child le aplica la propiedad a los primeros hijos de la
+etiqueta que hayamos escogido*/                 /*La propiedad :last-child le
+aplica la propiedad a los últimos hijos de la etiqueta que hayamos escogido*/
+/*La propiedad :only-child le aplica la propiedad sólo a los hijos únicos de
+la etiqueta que hayamos escogido*/                 /*Estas son algunas de las
+pseudoclases*/             
+/*          }             
+*/
+
+/*para darle estilos a los ID se debe colocar al comienzo el caracter # seguido del id que le hayamos colocado*/
+            #principal{
+                width: 500px;
+                background-color: blue;
+                text-align: center;
+                margin: 15px auto;/*Esto quiere decir que va a aplicar un marge superior e inferior de 15px y un margen auto desde la izquierda y la derecha ¡¡¡Sea cual sea la resolución o tamaño de pantalla!!!*/
+                /*Vamos a darle un espaciado interno con la propiedad padding*/
+                padding: 15px;
+                /*si se coloca una sola medida en px o en em se aplicará a los cuatro lados automáticamente, pero si colocamos 2 medidas, la primera medida es para los márgenes superior inferior, la siguiente medida es para las medidas de la izquierda y la derecha; si coloco 4 medidas la primera es la superior, la 2da es la de la derecha, la 3ra es la inferior, la 4ta es la izquierda*/
+                border: 3px solid #F00;
+                /*para las esquinas redondas se aplica border-radius*/
+                border-radius: 20px 5px 15px 40px;
+                /*Para la aplicación del sombreado de la caja*/
+                box-shadow: #999 15px 5px 5px;/*el primer px es el desplazamiento horizontal y el segundo es el desplazamiento vertical el 3er px es el nivel de la difuminación de la sombra*/
+            }
+
+            #titulo{
+                font: bold 36px Verdana, Geneva, sans-serif;
+                text-shadow: #0F0 6px 3px 5px;/*el primer px es el desplazamiento horizontal y el segundo es el desplazamiento vertical el 3er px es el nivel de la difuminación de la sombra*/
             }
         </style>
     </head>
@@ -28,8 +67,30 @@
         <p name="miselementos">Adiós</p>
         <p name="estilos">Febrero</p>
 -->
+
+        <!--
         <p>Hola</p>
         <p>Adiós</p>
         <p>Febrero</p>
+
+        <ol>--><!--Esto significa lista desordenada-->
+            <!--
+            <li>Frutas</li>
+            <li>
+                <p>manzana</p>-->
+                <!--<p>Limón</p>--><!--Este lo va a colorear por ser el segundo hijo de la lista de estos hermanos "p"-->
+                <!--<p>pera</p>
+                <p>Melón</p>-->
+            <!--
+            </li>
+        </ol>
+
+        <p>Hasta pronto</p>
+    -->
+        <header id="principal">
+            <span id="titulo">
+                Estilos CSS3
+            </span>
+        </header>
     </body>
 </html>
