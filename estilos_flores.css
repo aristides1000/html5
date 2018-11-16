@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/*Siempre es recomendable resetear el css y lo lograremos con estas lineas de código que me he descargado*/
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+ padding: 0;
+ margin: 0;
+ font-size: 100%;
+ font-weight: normal;
+}
+table { border-collapse: collapse; border-spacing: 0; }
+td, th, caption { font-weight: normal; text-align: left; }
+img, fieldset { border: 0; }
+ol { padding-left: 1.4em; list-style: decimal; }
+ul { padding-left: 1.4em; list-style:square; }
+q:before, q:after { content:''; }
+
+/*Fin del reset CSS*/
+
+body{
+	font-size: 62.5%;
+}
+
+h1{
+	font:normal 2.4em Verdana, Geneva, sans-serif;/*la unidad de medida em es un multiplicador*/
+	background:-webkit-linear-gradient(top, #00F, #0CF);
+	width: 35%;
+	border-radius:10px;
+	margin:15px auto;/*el 15px es el margen de arriba y de abajo y el el auto es el centrado del cuadro, en base al ancho del elemento que es 35%*/
+	/*para que el texto esté centrado*/
+	text-align:center;
+	padding:15px;
+	color:white;
+	box-shadow:#00F 5px 7px 10px;/*el 3er px es el difuminado*/
+	text-shadow:#FFF 2px 3px 3px;
+}
