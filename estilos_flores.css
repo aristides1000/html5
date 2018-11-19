@@ -33,3 +33,51 @@ h1{
 	box-shadow:#00F 5px 7px 10px;/*el 3er px es el difuminado*/
 	text-shadow:#FFF 2px 3px 3px;
 }
+
+h2{
+	font:bold 1.7em Verdana, Geneva, sans-serif;
+	margin:0;
+	padding:5px 0 5px 0px;
+	color:#000;
+}
+
+section{
+	width: 91%;
+	border-top:1px dashed #999;
+	margin:15px auto;
+}
+
+figure{
+	float:left;
+}
+
+figure img{/*esto quiere decir que aplique los cambios a las etiquetas img que estén dentro de la etiqueta figure o sean hijas de la etiqueta figure*/
+	padding: 4px;/*este padding es blanco, pero como el fondo es blanco no se nota la fiferencia*/
+	background:#666;/*esto es un sombreado que hace las veces de borde*/
+	border-radius: 20px;
+	-webkit-transition:-webkit-transform 0.3s ease-in-out 0.1s;/*ease-in-out es la entrada y la salida de la ejecución y el 0.1s es el tiempo a esperar entre el in-out*//*el 0.3 es la velocidad de transformación del objeto*/
+	box-shadow: #999 5px 5px 10px;
+}
+
+figure img:hover{/*:hover es una seudoclase*/
+	-webkit-transform:scale(1.2);
+}
+
+figcaption{
+	font-family: Arial, Melvetica, sans-serif;/*Pila con los ";"*/
+	font-size: 1.3em;
+	text-align: center;
+	margin-top: 5px;
+}
+
+footer{
+	clear:both;/*con esto se ignora el float y hace que el pie de página continúe abajo*/
+	padding-top: 100px;
+}
+
+footer p{
+	font:1.6em Georgia, "Times New Roman", Times, serif;
+	color:#666;
+	margin:10px 8px;
+
+}
