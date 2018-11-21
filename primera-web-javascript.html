@@ -30,9 +30,17 @@
 	<p onclick="saludo()";>Presentación JavaScript</p>-->
 	<!--
 	<p onmouseover="saludo()";>Presentación JavaScript</p>-->
-	<p>Presentación JavaScript</p>
-	<p id="importante" class="importante">ejemplo de segundo párrafo</p>
-	<p>ejemplo de tercer párrafo</p>
-	<p class="importante">ejemplo de cuarto párrafo</p>
+	<div id="principal">
+
+		<p>Presentación JavaScript</p>
+		<p id="importante" class="importante">ejemplo de segundo párrafo</p>
+		<p>ejemplo de tercer párrafo</p>
+		<p class="importante">ejemplo de cuarto párrafo</p>
+		<!--a pesar de que agreguemos más párrafos en el div, con ;i<elementos.length; el código averigua de forma automática el tamaño del arreglo-->
+		<p>otro parrafo más</p>
+	</div>
+
+	<p>ejemplo de quinto párrafo</p>
+	<p>ejemplo de <span>sexto</span> párrafo</p><!--la etiqueta span no dá ningún tipo de formato, lo más importante de todo esto es que quisimos hacer esto de encerrar la palabra entre estas etiquetas con la finalidad de que al hacerle click a la palabra se genere el evento del alert en javascript-->
 </body>
 </html>
