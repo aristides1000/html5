@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Anidados</title>
+	<script>
+		
+		function loseventos(){
+			var elemento=document.getElementsByTagName("p")[0];
+
+			var elemento2=document.getElementsByTagName("img")[0];
+
+			elemento.addEventListener("click",aviso2/*es aviso2 porque hace referencia al parrafo*/,true);/*el 3er parámetro habla de las prioridades de ejecución si es true es el primero que se ejecute si es false no importaría el orden*//*este es el ejemplo de los elementos anidados*/
+
+			elemento2.addEventListener("click",aviso1,false);
+		}
+
+		function aviso1(){
+			alert("Hola soy la imagen");
+		}
+
+		function aviso2(){
+			alert("Hola soy el párrafo");
+		}
+
+		window.addEventListener("load",loseventos,false);
+	</script>
+</head>
+<body>
+	<p><img src="imagenes/1.jpg"></p>
+</body>
+</html>

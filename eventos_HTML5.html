@@ -5,7 +5,7 @@
 	<title>eventos HTML5</title>
 	<script>
 		/*se coloca la variable al comienzo del script para que pueda ser usada por todas las demás funciones*/
-		var imagen;
+		var imagen=new Array(3);
 
 		function tipoflor(){
 			alert("Pensamientos");
@@ -23,33 +23,63 @@
 		}*/
 		function manejaflor(){
 			/*como la variable imagen ya está declarada arriba no hace falta declararla abajo, sino que más bien se la coloca directamente sin el var*/
-			/*var */imagen=document.getElementsByTagName("img")[0];
+			/*Si queremos agarrar todas la imágenes debemos meterlo en un ciclo for*/
 
-			imagen.addEventListener(/*"click"*/"mouseover",crecer,false);
+			for(var i=0;i<4;i++){
+			/*var */imagen[i]=document.getElementsByTagName("img")[i];
+			}
+
+			imagen[0].addEventListener(/*"click"*/"mouseover",function(){imagen[0].width=225;imagen[0].height=225;},false);/*para que no nos de error tenemos que meter las instrucciones imagen[0].width=225 en una function anonima, esto se hizo para lograr el efecto de agrandado en todas las imágenes*/
 			/*lo bueno del método addEventListener es que se pueden colocar varios eventos y acciones traducidas en funciones a tomar*/
 			/*esta función es para cuando quitamos el mouse de encima de la imagen*/
-			imagen.addEventListener("mouseout",menguar,false);
-			imagen.addEventListener("click",tipoflor,false);
-		}
+			imagen[0].addEventListener("mouseout",function(){imagen[0].width=200;imagen[0].height=200;},false);
+			imagen[0].addEventListener("click",tipoflor,false);
 
+			/*Ahora debemos repetirlo para cada imagen en total 4 imágenes enpezando desde la posición 0*/
+
+			imagen[1].addEventListener("mouseover",function(){imagen[1].width=225;imagen[1].height=225;},false);
+			imagen[1].addEventListener("mouseout",function(){imagen[1].width=200;imagen[1].height=200;},false);
+			imagen[1].addEventListener("click",tipoflor,false);
+
+			imagen[2].addEventListener("mouseover",function(){imagen[2].width=225;imagen[2].height=225;},false);
+			imagen[2].addEventListener("mouseout",function(){imagen[2].width=200;imagen[2].height=200;},false);
+			imagen[2].addEventListener("click",tipoflor,false);
+
+			imagen[3].addEventListener("mouseover",function(){imagen[3].width=225;imagen[3].height=225;},false);
+			imagen[3].addEventListener("mouseout",function(){imagen[3].width=200;imagen[3].height=200;},false);
+			imagen[3].addEventListener("click",tipoflor,false);
+
+			/*Estas imagenes no se pueden meter en un bucle for porque no agrandarían, la única que agrandaría sería la última imagen*/
+		}
+		
+		/*la function crecer() fue sustituida por el código en addEventListener por ello la comentamos*/
+		/*
 		function crecer(){
 			imagen.width=225;
 			imagen.height=225;
 		}
+		*/
 
+		/*
 		function menguar(){
 			imagen.width=200;
 			imagen.height=200;	
 		}
+		*/
 
-		window.onload=/*daTipoFlor*/manejaflor;/*daTipoFlor era una función anterior*/
+		/*window.onload=*//*daTipoFlor*//*manejaflor;*//*daTipoFlor era una función anterior*/
+		/*vamos a meter la función window.onload en su equivalente addEventListener y se hace de la siguiente manera*/
+		window.addEventListener("load"/*los eventos en addEventListener nunca levan al principio el prefijo on, sino que van directo*/,manejaflor/*este es el nombre de nuestra función*/,false);
 	</script>
 </head>
 <body>
 	<!--<p><img src="imagenes/1.jpg" onmouseover="tipoflor()">--><!--este es el tipo de evento que se desencadena en linea, no es recomendable de usar ya que ensucia mucho el código HTML5, hay otros métodos mejores que este y los veremos mucho más adelante--><!--</p>-->
 	<!--Los tipos de eventos en html5 siempre comienzan con on, algunos de los que existen son los siguientes onclick, onmouseover, onkeydown, entreotros-->
 	<p>
-		<img src="imagenes/1.jpg">
+		<img src="imagenes/1.jpg">&nbsp;&nbsp;<!--&nbsp; sirve para darle espacio a la derecha a algún elemento o etiqueta html5, y quiere decir Non Breaking Space-->
+		<img src="imagenes/2.jpg">&nbsp;&nbsp;
+		<img src="imagenes/3.jpg">&nbsp;&nbsp;
+		<img src="imagenes/4.jpg">
 	</p>
 </body>
 </html>
