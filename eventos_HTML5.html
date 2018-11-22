@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>eventos HTML5</title>
+	<script>
+		/*se coloca la variable al comienzo del script para que pueda ser usada por todas las demás funciones*/
+		var imagen;
+
+		function tipoflor(){
+			alert("Pensamientos");
+		}
+
+		/*
+		function daTipoFlor(){*/
+			/*document.getElementsByTagName("img")[0].onclick=tipoflor;*/
+			
+			/*Ahora vamos a aplicar el método addEventListener() teniendo en cuenta que este método posee 3 argumentos: 1. Nombre del evento. 2. Función a ejecutar. 3.Valor booleano*/
+			/*
+			var imagen=document.getElementsByTagName("img")[0];
+
+			imagen.addEventListener("click",tipoflor,false);
+		}*/
+		function manejaflor(){
+			/*como la variable imagen ya está declarada arriba no hace falta declararla abajo, sino que más bien se la coloca directamente sin el var*/
+			/*var */imagen=document.getElementsByTagName("img")[0];
+
+			imagen.addEventListener(/*"click"*/"mouseover",crecer,false);
+			/*lo bueno del método addEventListener es que se pueden colocar varios eventos y acciones traducidas en funciones a tomar*/
+			/*esta función es para cuando quitamos el mouse de encima de la imagen*/
+			imagen.addEventListener("mouseout",menguar,false);
+			imagen.addEventListener("click",tipoflor,false);
+		}
+
+		function crecer(){
+			imagen.width=225;
+			imagen.height=225;
+		}
+
+		function menguar(){
+			imagen.width=200;
+			imagen.height=200;	
+		}
+
+		window.onload=/*daTipoFlor*/manejaflor;/*daTipoFlor era una función anterior*/
+	</script>
+</head>
+<body>
+	<!--<p><img src="imagenes/1.jpg" onmouseover="tipoflor()">--><!--este es el tipo de evento que se desencadena en linea, no es recomendable de usar ya que ensucia mucho el código HTML5, hay otros métodos mejores que este y los veremos mucho más adelante--><!--</p>-->
+	<!--Los tipos de eventos en html5 siempre comienzan con on, algunos de los que existen son los siguientes onclick, onmouseover, onkeydown, entreotros-->
+	<p>
+		<img src="imagenes/1.jpg">
+	</p>
+</body>
+</html>
