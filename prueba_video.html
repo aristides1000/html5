@@ -7,9 +7,22 @@
 </head>
 <body>
 	<section id="video">
-		<video id="mivideo" width="720" controls=""><!--el atributo "loop" devuelve desde el principio el video--><!--el atributo "poster" poster="imagenes/1.jpg" coloca una imagen de portada al principio del video, como un porter-->
+		<video id="mivideo" width="720"><!--el atributo "loop" devuelve desde el principio el video--><!--el atributo "poster" poster="imagenes/1.jpg" coloca una imagen de portada al principio del video, como un porter-->
 			<source src="video/video.mp4"><!--Con esto se pueden colocar varios formatos de videos-->
 		</video>
+		<nav>
+			<div id="botones">
+				<button type="button" id="reproducir">Play</button>
+			</div>
+			<div id="barra">
+				<div id="progreso">
+					
+				</div>
+			</div>
+		</nav>
 	</section>
+
+	<!--el link al archivo javascript siempre se hace al final para darle chance a la página web de que cargue y no de errores antes del cierre de la etiqueta body-->
+	<script src="video/funcionalidad_barra.js"></script>
 </body>
 </html>
