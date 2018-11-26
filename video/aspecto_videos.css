@@ -4,7 +4,7 @@
 	background: #FC3;
 	padding: 5px 5px 5px 5px;
 	border: 2px solid #F60;
-	/*-webkit-es para que tenga compatibilidad el border radius con todos los navegadores, especificamente chrome*/
+	/*-webkit-es para que tenga compatibilidad el border-radius con todos los navegadores, especificamente chrome*/
 	-webkit-border-radius: 8px;/*chrome*/
 	-moz-border-radius: 8px;/*mozila*/
 	-ms-border-radius: 8px;/*microsoft*/
