@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba_audio</title>
+	<link rel="stylesheet" href="audio/aspecto_audios.css">
+</head>
+<body>
+	<!--para insertar un audio tenemos que aplicar lo mismo que con los videos, pero en este caso la etiqueta que debemos usar es la etiqueta <audio> entre sus atributos posee Src, Controls, Autoplay, Loop, preload-->
+	<section id="reproductor">
+		<audio id="miaudio">
+			<!--De esta forma podemos colocar varios formatos de música en una sola etiqueta-->
+			<source  src="audio/audio.mp3">
+		</audio>
+		
+		<nav>
+			<div id="botones">
+				<button type="button" id="play">
+					Play
+				</button>
+			</div>
+			<div id="barra">
+				<div id="progreso">
+					
+				</div>
+			</div>
+		</nav>
+	</section>
+
+	<script src="audio/funcionalidad_barra.js"></script>
+</body>
+</html>

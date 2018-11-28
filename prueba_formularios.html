@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba_Formularios</title>
+</head>
+<body>
+	<section>
+		<form name="miformulario" id="miformulario" method="get" autocomplete="off">
+			<!--el atributo autocomplete="off" de la etiqueta <form> evita el auto completado, está por defecto en autocomplete="on"-->
+			<!--<input type="text" name="Texto" id="Texto">-->
+			<!--la etiqueta <input> en su atributo type puede ser aparte de text tambien email, search, url, tel, Number: junto con min, max y step, Range: junto con max, min, step, date, week, month, time, datetime-->
+			<!--
+			Email:&nbsp;<input type="email" name="email" id="email">
+			<br><br>
+			Buscar:&nbsp;<input type="search" name="buscar" id="buscar">
+			-->
+			<!--creo que en los formularios lo mejor es siempre colocarle los mismos nombres a el name, al id y al type-->			
+			<!--
+			<br><br>
+			Url:&nbsp;<input type="url" name="url" id="url">
+			<br><br>
+			-->
+			<!--El valor Type de "tel" no da ningún tipo de validación, es por ello que lo más recomendable hacer la validación del teléfono con javascript o php, preferiblemente con JavaScript-->
+			Edad:&nbsp;<input type="number" name="edad" id="edad" min="1" max="100">
+			<input type="submit" value="Enviar">
+		</form>
+	</section>
+</body>
+</html>
