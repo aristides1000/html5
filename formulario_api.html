@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>formulario_api</title>
+</head>
+<style>
+	
+	table{
+		text-align: center;
+		background-color: #F96;
+		width: 25%;
+		margin: auto;
+		border: 2px #F30 dashed;
+	}
+
+	td{
+		padding: 15px;
+	}
+
+</style>
+
+<script>
+	
+	function comenzar(){
+
+		var nombre = document.getElementById("nombre");
+
+		var apellido = document.getElementById("apellido");
+
+		nombre.addEventListener("input",validar,false);/*la acción input se activa cada vez que agregamos caracteres en el input*/
+
+		apellido.addEventListener("input",validar,false);
+
+		validar();
+	}
+
+	function validar(){
+
+		if(nombre.value=="" && apellido.value==""){
+
+			nombre.setCustomValidity("Introduce nombre o apellido");
+
+			nombre.style.background="#FFDDDD";
+			apellido.style.background="#FFDDDD";
+
+		}
+
+		else{
+
+			nombre.setCustomValidity("");
+
+			nombre.style.background="#FFFFFF";
+			apellido.style.background="#FFFFFF";
+		}
+	}
+
+	window.addEventListener("load",comenzar,false);
+
+</script>
+
+<body>
+	<section>
+		<form name="registro_usuario" method="get">
+			<!--
+			<datalist id="informacion">
+				<option value="789456123" label="   Teléfono 1"></option>
+				<option value="987654321" label="   Teléfono 2"></option>
+				<option value="897564231" label="   Teléfono 3"></option>
+			</datalist>
+
+			Teléfono:&nbsp;<input type="tel" name="telefono" id="telefono" list="informacion">
+			-->
+			<table>
+				<tr>
+					<td>Nombre:</td>
+					<td><input type="text" name="nombre" id="nombre"></td>
+				</tr>
+				<tr>
+					<td>Apellido:</td>
+					<td><input type="text" name="apellido" id="apellido"></td>
+				</tr>
+				<tr>
+					<td>Edad:</td>
+					<td><input type="number" name="edad" id="edad" min="1" max="100"></td>
+				</tr>
+				<tr>
+					<td><input type="submit" id="Enviar" value="Registrar"></td>
+				</tr>
+			</table>
+		</form>
+	</section>
+</body>
+</html>
