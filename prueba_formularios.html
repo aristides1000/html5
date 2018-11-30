@@ -22,9 +22,51 @@
 			<br><br>
 			-->
 			<!--El valor Type de "tel" no da ningún tipo de validación, es por ello que lo más recomendable hacer la validación del teléfono con javascript o php, preferiblemente con JavaScript-->
-			Edad:&nbsp;<input type="number" name="edad" id="edad" min="1" max="100">
+			<!--Edad:&nbsp;<input type="number" name="edad" id="edad" min="0" max="100" step="5" placeholder="de 5 en 5">--><!--El atributo step nos dice de cuanto en cuanto van los números, ejemplo, si es 2, van de 2 en 2, si es 3 van de 3 en 3 y así sucesivamente-->
+			<!--el atributo Placeholder de las etiquetas <input> son breves instrucciones en color gris que se le dán al usuario con la finalidad de que escriba algo en concreto en los campos-->
+
+
+			<!--
+			Edad:&nbsp;<input type="range" name="edad" id="edad" min="5" max="105">
+			-->
+			<!--
+			<input type="date" name="fecha" id="fecha">
+			-->
+
+			<!--<input type="month" name="fecha" id="fecha">--><!--Da la posibilidad de cambiar el mes-->
+			<!--
+			<input type="week" name="semana" id="semana">--><!--Cambia el formato para semanade escribir semanas-->
+			<!--
+			<input type="time" name="fecha" id="fecha">
+			-->
+
+			<!--<input type="datetime" name="fecha" id="fecha">--><!--la propiedad datetime del atributo datetime--><!--en el único navegador que funciona es en Opera, creo que lo mejor es hacer la validación con javascript-->
+
+			<!--algunos de los atributos de la etiqueta <input> son: placeholder, required, Multiple, Autofocus, pattern, form,-->
+			<!--placeholder coloca una marca de agua gris en el campo para darle una idea al usuario de lo que debe colocar-->
+			<!--required no permite enviar la información si el campo está vacío-->
+			<!--multiple permite enviar más de un dato en un campo, ejemplo cuando enviamos un correo a varios destinatarios-->
+			<!--autofocus nos da la oportunidad de que aparesca el cursor donde coloquemos la propiedad-->
+			<!--Pattern sirve para hacer validaciones especiales, cómo las validaciones de los códigos postales-->
+			Email:&nbsp;<input type="email" name="email" id="email" required multiple autofocus><!--las propiedades required, multiple, y autofocus son  propiedades boleanas, es por ello que no llevan valores-->
+			<br><br>
+			Buscar:&nbsp;<input type="search" name="buscar" id="buscar">
+			<br><br>
+			Url:&nbsp;<input type="url" name="url" id="url">
+			<br><br>
+			Edad:&nbsp;<input type="range" name="edad" id="edad" min="5" max="105">
+			<br><br>
+			Fecha:&nbsp;<input type="time" name="fecha" id="fecha">
+			<br><br>
+			<!--la construcción del tipo de campo pattern tiene una estructura distinta de los demás tipos de inputs-->
+			C. postal:&nbsp;<input pattern="[0-9]{5}" name="cpostal" id="cpostal" placeholder="5 digitos">
+			<br><br>
 			<input type="submit" value="Enviar">
 		</form>
 	</section>
+	<br>
+	<img src="imagenes/1.jpg" width="200" height="200">
+	<br>
+	Nombre:&nbsp;<input type="text" name="nombre" id="nombre" form="miformulario">
 </body>
 </html>
