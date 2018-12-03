@@ -39,11 +39,14 @@
 
 		edad=document.getElementById("miedad");/*Este es un elemento que se declara en esta linea y se ejecuta en la siguiente*/
 
-		edad.addEventListener("change", cambia_rango, false);
-  
-		document.datos_usuario.addEventListener("invalid",validar,true);/*se le coloca true ya que posee elementos anidados, y con el true se jerarquiza y se dice que este elemento se ejecuta primero*/
+		edad.addEventListener("change",cambia_rango,false);
+  		
+		document.datos_usuario.addEventListener("invalid",validar, true);/*se le coloca true ya que posee elementos anidados, y con el true se jerarquiza y se dice que este elemento se ejecuta primero*//*el evento "invalid" genera un objeto error que se captura en la función validar y ese objeto error tiene sus propiedades y sus métodos*/
 
 		document.getElementById("Enviar").addEventListener("click",enviar,false);/*esta linea de código es la simplificación de hacerlo en una linea en lugar de 2 lineas como arriba*/
+
+		document.datos_usuario.addEventListener("input",validar_tiempo_real, false);/*recordar que la acción input es en cualquier momento en el que introduzcamos información en el formulario, es importante tener esto en cuenta*/
+
 	}
 	/*
 	function validar(){
@@ -83,13 +86,48 @@
 
 	}
 
+	function validar(e){/*lo estamos creando porque invalid crea un objeto error y lo alamcenamos en (e) por convención, aunque si le colocamos otro nombre a la variable de igual forma va a funcionar*//*el (e) tiene son propiedades y sus métodos, una de sus propiedades es la propiedad target*/
+
+		var elemento=e.target;/*esta es una de las propiedades de error, target, y es por ello que se escribe e.target y esta propiedad lo que hace concretamente es decirnos cual de los elementos del formulario fue el que nos dio el error*/
+		elemento.style.background="#FFDDDD";/*el elemento que se pinte de #FFDDDD es que está generando error, osea, que si es el campo email el que está dando error lo va a poner en color #FFDDDD, si es el campo edad, lo pondra en color #FFDDDD y ese sería el funcionamiento*/		
+
+	}
+
+	function enviar(){
+
+		var correcto=document.datos_usuario.checkValidity();/*el método checkValidity() devuelve true o false, osea un dato de tipo booleano*/
+
+		if(correcto==true){
+
+			document.datos_usuario.submit();
+
+		}
+
+	}
+
+	function validar_tiempo_real(e){
+		
+		var elemento=e.target;
+
+		if(elemento.validity.valid==true){
+
+			elemento.style.background="#FFFFFF";
+
+		}else{
+
+			elemento.style.background="#FFDDDD";
+			
+		}
+
+	}
+
 	window.addEventListener("load",comenzar,false);
 
 </script>
 
 <body>
 	<section>
-		<form name="registro_usuario" method="get">
+		<form name="datos_usuario" method="get">
 			<!--
 			<datalist id="informacion">
 				<option value="789456123" label="   Teléfono 1"></option>
