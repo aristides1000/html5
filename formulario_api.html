@@ -95,11 +95,21 @@
 
 	function enviar(){
 
+		var cuadro_usuario=document.getElementById("usuario");
+
 		var correcto=document.datos_usuario.checkValidity();/*el método checkValidity() devuelve true o false, osea un dato de tipo booleano*/
 
 		if(correcto==true){
 
 			document.datos_usuario.submit();
+
+		}else if(cuadro_usuario.validity.valueMissing==true/* || cuadro_usuario.validity.patternMismatch==true*/){/*hacemos esto para colocar mensajes de error de validación de formularios de error totalmente aparte del que nos dan los navegadores*//*valueMissing sirve para cuando las validaciones al momento del submit nos dan error*/
+			
+			alert("El usuario no puede estar vacío.");/* y recuerda que tiene que tener 3 letras");*/
+
+		}else if(cuadro_usuario.validity.patternMismatch==true){/*el patternMismatch valida que lo que hayamos colocado en el en el pattern de nuestra etiqueta input pattern coincida con los parámetros que le colocamos al pattern, de no ser así, colocamos las acciones a tomar que querramos*/
+
+			alert("Recuerda que el usuario tiene que tener 3 letras");
 
 		}
 
@@ -116,7 +126,7 @@
 		}else{
 
 			elemento.style.background="#FFDDDD";
-			
+
 		}
 
 	}
