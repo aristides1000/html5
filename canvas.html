@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style>
+		#lienzo{
+			background-color: #F00; 
+		}
+
+		section{
+			width: 500px;
+			position: relative;
+			margin: auto;
+		}
+	</style>
+	<script>
+		
+		function comenzar(){
+
+			var elemento=document.getElementById("lienzo");
+
+			lienzo=elemento.getContext("2d");/*esto dice que el lienzo es 2d*/
+
+            /*lienzo.fillRect(110,110,100,100);*//*esto es para dibujar una cuadrado relleno dentro del lienzo*//*estos son sus valores(eje x, eje y, width, height)*/
+
+            lienzo.strokeRect(110, 110,100, 100);/*es para dibujar un cuadrado sin fondo*//*estos son sus valores(eje x, eje y, width, height)*/
+		}
+
+		window.addEventListener("load",comenzar,false);
+	</script>
+</head>
+<body>
+	<section id="dibujo">
+		<canvas id="lienzo" width="500" height="300">
+			<!--Si en nuestro caso nuestro navegador no tuviese la capacidad de cargar el elemento canvas, lo que debemos es escribir un texto plano en dentro de las etiquetas canvas para que aparezca sino se carga el Canvas en nuestro navegador, si no muestra el texto es porque nuestro navegador si soporta canvas-->
+			Su navegador no soporta el elemento html5 canvas
+			<!--para ver los métodos de la etiqueta canvas observalas en la nota html5 de evernote-->
+		</canvas>
+	</section>
+</body>
+</html>
