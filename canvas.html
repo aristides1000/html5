@@ -5,7 +5,7 @@
 	<title>Canvas</title>
 	<style>
 		#lienzo{
-			background-color: #F00; 
+			background-color: #F00;
 		}
 
 		section{
@@ -20,11 +20,40 @@
 
 			var elemento=document.getElementById("lienzo");
 
-			lienzo=elemento.getContext("2d");/*esto dice que el lienzo es 2d*/
+			lienzo=elemento.getContext("2d");/*esto dice que el lienzo es de 2 dimenciones*/
 
             /*lienzo.fillRect(110,110,100,100);*//*esto es para dibujar una cuadrado relleno dentro del lienzo*//*estos son sus valores(eje x, eje y, width, height)*/
 
-            lienzo.strokeRect(110, 110,100, 100);/*es para dibujar un cuadrado sin fondo*//*estos son sus valores(eje x, eje y, width, height)*/
+            /*lienzo.strokeRect(110, 110,100, 100);*//*es para dibujar un cuadrado sin fondo o relleno*//*estos son sus valores(eje x, eje y, width, height)*/
+
+            /*
+            lienzo.fillRect(110,110,100,100);
+
+            lienzo.clearRect(130,130,50,50);*//*Sirve para borrar los cuadrados creados*/
+
+            /*lienzo.fillStyle="magenta";*//*esto es para cambiarle el color al cuadrado*//*la propiedad del color hay que colocarla antes del fillRect para que agarre el color*/
+
+            /*lienzo.fillStyle="#431256";*//*se puede escoger el color por código hexadecimal tambien*/
+
+            /*lienzo.strokeStyle="yellow";*//*Esto es para cambiar el color del contorno*/
+
+            /*lienzo.strokeRect(110,80,200,200);*/
+
+            /*Vamos a hacer un cuadrado sin relleno, dentro un cuadrado con relleno y dentro de ese cuadrado lo vamos a borrar*/
+
+            lienzo.strokeStyle="yellow";
+
+            lienzo.fillStyle="blue";
+
+            /*Aquí le aplicamos a continuación la transparencia al cuadrado relleno y al cuadrado sin relleno*/
+
+            lienzo.globalAlpha=0.3;/*GlobalAlpha es la propiedad de la transparencia de todos los elementos contenidos en nuestro lienzo y va de 0 a 1, más cercano al 0 es más transparente, más cercano al 1 es menos transparente*/
+
+            lienzo.strokeRect(100,100,120,120);
+
+            lienzo.fillRect(110,110,100,100);
+
+            lienzo.clearRect(120,120,80,80);
 		}
 
 		window.addEventListener("load",comenzar,false);
