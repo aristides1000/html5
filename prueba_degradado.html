@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Prueba_degradado</title>
+
+	<style>
+		section{
+			width: 500px;/*si no le coloco el width, no aplica el margin: auto;*/
+			margin: auto;
+		}
+		/*
+		#lienzo{
+			background-color: #F00;
+			}
+		*/
+	</style>
+	<!-- lo recomendable es dejar el script al final del código para que no interfiera con el cargado de las páginas web, pero, en este caso se hace dentro del head así -->
+	<script>
+		function comenzar(){
+			var elemento=document.getElementById("lienzo");
+
+			/*Aquí le específico que es de 2 dimensiones*/
+			lienzo=elemento.getContext("2d");
+
+			var degradado=lienzo.createLinearGradient(0,150,500,150);/*los parámetros de createLinearGradient(x1,y1,x2,y2) esos son los parámetros*/
+
+			degradado.addColorStop(0,"red");/*el 0, es que inicia en el punto más izquierdo y los valores van del 0 al 1*/
+
+			degradado.addColorStop(1,"green");
+
+			lienzo.fillStyle=degradado;
+		}
+
+		window.addEventListener("load",comenzar,false);
+	</script>
+
+</head>
+<body>
+	<section id="dibujo">
+		<canvas id="lienzo" width="500" height="300">
+			<!-- Si el canvas no es soportado aparecerá este texto -->
+			Su navegador no soporta el elemento canvas.
+		</canvas>
+	</section>
+</body>
+</html>
