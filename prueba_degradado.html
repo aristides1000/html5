@@ -23,17 +23,19 @@
 			/*Aquí le específico que es de 2 dimensiones*/
 			lienzo=elemento.getContext("2d");
 
-			var degradado=lienzo.createLinearGradient(0,150,500,150);/*los parámetros de createLinearGradient(x1,y1,x2,y2) esos son los parámetros*/
+			/*var degradado=lienzo.createLinearGradient(0,150,500,150);*//*los parámetros de createLinearGradient(x1,y1,x2,y2) esos son los parámetros*//*estos parámetros nos dicen de donde comienza el degradado y dónde termina el degradado, es por ello que si le decimos que (250,0,250,300) el degradado va de arriba hacia abajo*/
+
+			var degradado=lienzo.createRadialGradient(250,150,50,250,150,300);/*(x1,y1,r1,x2,y2,r2) dónde r=radio del círculo*/
 
 			degradado.addColorStop(0,"red");/*el 0, es que inicia en el punto más izquierdo y los valores van del 0 al 1*//*modificando estos números entre el 0 y el 1 lograremos decirle el tamaño del degradado y desde dónde comienza y desde dónde termina*/
 
-			degradado.addColorStop(0.2,"orange");
+			degradado.addColorStop(0.2,"yellow");
 
-			degradado.addColorStop(0.4,"yellow");/*importando lo de lso números*/
+			degradado.addColorStop(0.4,"red");/*importando lo de lso números*/
 
 			degradado.addColorStop(0.6,"green");
 
-			degradado.addColorStop(0.8,"blue");
+			degradado.addColorStop(0.8,"red");
 
 			degradado.addColorStop(1,"purple");/*tambien se pueden agregar los colores que nosotros querramos, siempre y cuando juguemos bien con los números*/
 
