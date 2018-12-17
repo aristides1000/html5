@@ -25,11 +25,14 @@
 
 			var degradado=lienzo.createLinearGradient(0,150,500,150);/*los parámetros de createLinearGradient(x1,y1,x2,y2) esos son los parámetros*/
 
-			degradado.addColorStop(0,"red");/*el 0, es que inicia en el punto más izquierdo y los valores van del 0 al 1*/
+			degradado.addColorStop(0,"red");/*el 0, es que inicia en el punto más izquierdo y los valores van del 0 al 1*//*modificando estos números entre el 0 y el 1 lograremos decirle el tamaño del degradado y desde dónde comienza y desde dónde termina*/
 
 			degradado.addColorStop(1,"green");
 
 			lienzo.fillStyle=degradado;
+
+			lienzo.fillRect(0,0,500,300);/*tiene formato (x1,y1,x2,y2) dónde, la x1,y1 representa el punto desde dónde se va a hacer el dibujo del cuadrado y el x2,y2 representa el tamaño del cuadrado*//*si le pongo (0,0,80,80) la figura se va a ver roja, ya que crea una especie de máscara de recorte esta propiedad*//*si le pongo (420,0,80,80) la figura se va a ver verde, ya que crea una especie de máscara de recorte esta propiedad*/
+
 		}
 
 		window.addEventListener("load",comenzar,false);
