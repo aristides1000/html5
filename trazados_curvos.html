@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #lienzo {
+            border: 1px solid #f00;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            lienzo.beginPath();
+
+            /*Procedemos a escribir el método arc para dibujar arcos*/
+            /*lienzo.arc(100, 100, 80, 0, 1, false);*/
+            /*el 0,1 del método arc representa los radines que es una posición en el arco de circunferencia y nos dicen desde dónde empieza el arco y dónde termina*/ /*un radián equivale a la longitud del radio medido en la curva del arco de la circunferencia*/ /*el false (dato boleano) nos devuelve la longitud del arco, y si le colocamos true nos devuelve el inverso de esa selecció*/
+
+            /* lienzo.arc(250, 100, 100, 0, Math.PI, false); */
+            /*el número "PI" equivale a 180º*/
+
+            /*curva bezier*/
+            /*primero moveTo y luego de crear el punto*/
+            /* lienzo.moveTo(50,50); */
+
+            /* lienzo.quadraticCurveTo(100,125,50,200); *//*Los primeros 2 datos represntan el punto de control de la curva para hacer curvas tipo bezier*/
+            /*el (100,125) representa el punto de control*/
+            /*quadraticCurveTo tiene un punto de control*/
+
+            /*comienzo del método bezierCurveTo*/
+            lienzo.moveTo(250,50);
+
+            lienzo.bezierCurveTo(200,125,300,125,250,200);/*bezierCurveTo tiene dos puntos de control, donde sus primeros dos números representan el primer punto de control, los segundos 2 números representan el 2do punto de control, y el 3er par de puntos representa el punto final de la curva*/
+            /*fin del método bezierCurveTo*/
+
+
+            /*Ahora procesemos a mandar a trazar sin relleno con un stroke*/
+            lienzo.stroke();
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="500" height="300" id="lienzo">
+            Su navegador no admite el elemento canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
