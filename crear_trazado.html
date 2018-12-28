@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #lienzo {
+            border: 1px #FF0000 solid;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo"); /*el canvas es el que identificamos siempre, OJO no el section*/
+
+            lienzo = elemento.getContext("2d");
+            /*Para comenzar los trazados debemos empezar siempre con beginPath();*/
+            /*Para mover el lápiz debemos hacer uso de la palabra reservada moveTo(x,y)*/
+            /*Para hacer una línea debemos escribir lineTo(x,y)*/
+            /*Luego, para cerrar el trazado debemos escribir closePath();*/
+            /*Para finalizar tenemos que decirle através del código que dibuje el trazado que hemos generado en el código y esto se logra con el método stroke();*/
+
+            /*comenzamos el trazado*/
+            lienzo.beginPath();
+
+            /*Aquí comienza el triangulo*/
+            /*movemos el lápiz al comienzo del trazado*/
+            /* lienzo.moveTo(100, 200); */
+
+            /*Comenzamos a realizar el trazado indicándole el punto final de la línea*/
+            /* lienzo.lineTo(200, 200);
+
+            lienzo.lineTo(150, 150);
+
+            lienzo.lineTo(100, 200); */
+            /*Aquí finaliza el triangulo*/
+
+            /*Aquí comienza el cuadrado*/
+            /*movemos el lápiz al comienzo del trazado*/
+            lienzo.moveTo(100, 200);
+
+            /*Comenzamos a realizar el trazado indicándole el punto final de la línea*/
+            lienzo.lineTo(200, 200);
+
+            lienzo.lineTo(200, 100);
+
+            lienzo.lineTo(100, 100);
+
+            lienzo.lineTo(100, 200);
+            /*Aquí finaliza el cuadrado*/
+
+            /*Cerramos trazado*/
+            /* lienzo.closePath(); */
+
+            /*Antes de cerrar la vista, vamos a pedirle que nos muestre los bordes del canvas a través de un código CSS interno de la página*/
+
+            /*Ahora bien, le pedimos que dibuje a través de la siguiente instrucción*/
+            /* lienzo.stroke(); */
+            /*el método Stroke hace dibujos de contorno sin relleno*/
+            /*para comentar un texto en VSCode debemos tocar las teclas (Alt + Shift + A)*/
+
+            /* lienzo.fill(); */
+            /*el método fill dibuja una figura rellena*/
+
+            /*para hacer uso del método clip lo tenemos que reemplazar con el método closePath();*/
+            /* lienzo.closePath(); */
+            lienzo.clip(); /*el método clip crea una máscara de recorte*/
+
+            /*para que el método clip (máscara de recorte) pueda ser visto, debemos escribir el siguiente código para construir líneas horizontáles para poder observar la máscara de recorte*/
+
+            lienzo.beginPath(); /*con esto creamos lás líneas horizontales y vamos a dibujarlas 1 a 1*/
+
+            for (i = 0; i < 250; i += 10) { /*con este ciclo for dibujamos las líneas horizontáles*/
+
+                lienzo.moveTo(0, i);
+
+                lienzo.lineTo(500, i);
+
+            }
+
+            lienzo.stroke();
+
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section id="dibujo">
+        <canvas id="lienzo" width="500" height="300">
+            Este elemento no es soportado por su navegador
+        </canvas>
+    </section>
+</body>
+
+</html>
