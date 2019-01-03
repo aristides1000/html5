@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #lienzo {
+            border: 1px solid #ff0000;
+        }
+
+        section {
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function comenzar(){
+            var elemento=document.getElementById("lienzo");
+        }
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="800" height="600" id="lienzo">
+            Su navegador no soporta el elemento canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
