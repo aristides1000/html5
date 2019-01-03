@@ -14,12 +14,77 @@
         section {
             width: 800px;
             position: relative;
-            margin: auto; 
+            margin: auto;
         }
     </style>
     <script>
-        function comenzar(){
-            var elemento=document.getElementById("lienzo");
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            lienzo.arc(200, 150, 100, 0, Math.PI * 2, false);
+
+            lienzo.stroke();
+
+            lienzo.lineWidth = 10;
+
+            lienzo.lineCap = "round"; /*El round hace que las puntas de la línea termine en redondo*/
+            /*lienzo.lineCap="square";*/
+            /*El square hace que las puntas de la línea termine en rectas*/
+            /*lienzo.lineCap="butt";*/
+            /*butt hace un recorte de las puntas*/
+
+            lienzo.beginPath();
+
+            lienzo.arc(200, 170, 60, 0, Math.PI, false);
+
+            lienzo.stroke();
+
+            lienzo.lineWidth = 5;
+
+            /* lienzo.lineJoin = "miter"; *//*lineJoin se refiere a cómo es la unión entre las líneas*//*miter hace que la unión entre las líneas sea punteaguda*/
+
+            /* lienzo.lineJoin = "round"; *//*round hace que la unión entre las líneas sea redonda*/
+
+            /* lienzo.lineJoin = "bevel"; *//*bevel hace que la unión entre las líneas se recorte*/
+            
+            /*Tambien podemos hacer uso de miter en la unión de las líneas*/
+            lienzo.lineJoin="miter";
+
+            lienzo.miterLimit=2;/*miter nos dice hasta dónde era la unión entre líneas*//*con miter podemos determinar cuanto lo amputa la unión de líneas con bevel no*/
+
+            lienzo.beginPath();
+
+            lienzo.moveTo(195, 135);
+
+            lienzo.lineTo(215, 155);
+
+            lienzo.lineTo(195,155);
+
+            lienzo.stroke();
+
+            lienzo.lineWidth=1;
+
+            lienzo.beginPath();
+
+            lienzo.arc(175,110,7,0,Math.PI*2,false);/*interior del ojo izquierdo*/
+
+            lienzo.arc(225,110,7,0,Math.PI*2,false);/*interior del ojo derecho*/
+
+            lienzo.fill();
+            
+            lienzo.beginPath();
+
+            lienzo.arc(168,106,15,0,Math.PI*2,false);
+
+            lienzo.stroke();
+            
+            lienzo.beginPath();
+
+            lienzo.arc(232,106,15,0,Math.PI*2,false);
+
+            lienzo.stroke();
         }
         window.addEventListener("load", comenzar, false);
     </script>
