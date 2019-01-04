@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas_Texto</title>
+    <style>
+        #lienzo{
+            border: 1px solid #F00;
+        }
+        section{
+            width: 800px;
+            position: relative;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function comenzar(){
+            var elemento=document.getElementById("lienzo");
+
+            lienzo=elemento.getContext("2d");
+
+            /*Esta parte es para hacer le sombreado del texto*/
+            
+            /*Aquí definimos el color del sombreado*/
+            lienzo.shadowColor="rgba(0,0,0,0.5)"/*rgba es red, green, blue, y alpha, dónde alpha va de 0 a 1 y representa la transparencia del color*/
+
+            /*Aquí definímos la posición del sombreado*/
+            lienzo.shadowOffsetX=4;/*posición el sombreado en el eje de las X*/
+
+            lienzo.shadowOffsetY=4;/*posición el sombreado en el eje de las Y*/
+
+            /*Esto es para aplicar el difuminado del sombra*/
+            lienzo.shadowBlur=5;/*shadowBlur define el difuminado de la sombra*/
+
+            /*fin de la parte para hacer le sombreado del texto*/
+
+            lienzo.font="bold 48px verdana";/*configuraciones del texto con la misma sintaxis que en css*/
+
+            lienzo.textAlign="start";/*start indica que aquí es desde dónde va a comenzar a escribir el texto que le vamos a mandar*/
+            /* lienzo.textAlign="end"; *//*end indica que aquí es desde dónde va a terminar a escribir el texto que le vamos a mandar*/
+
+            /*Esto sirve para hacer alineamiento vertical*/
+            lienzo.textBaseline="top";/*top comienza por debajo de la referencia*/
+            /* lienzo.textBaseline="botton"; *//*botton comienza por encima de la referencia*/
+
+            lienzo.fillText("Hola Alumnos", 100, 100);
+
+            /*Esta línea es de referencia para ver la diferencia entre las propiedades de textBaseline "top" y "botton"*/
+            /* lienzo.moveTo(100,100);
+
+            lienzo.lineTo(200,100);
+
+            lienzo.stroke(); */
+
+            var dimensiones = lienzo.measureText("Hola Alumnos");/*measureText mide cuanto mide de ancho el texto que le coloquemos*/
+
+           /*  lienzo.strokeRect(95,95,dimensiones.width+10,58); *//*Esto es para referencia*/
+        }
+
+        window.addEventListener("load",comenzar,false);
+    </script>
+</head>
+<body>
+    <section>
+        <canvas width="800" height="600" id="lienzo">
+            Su Navegador no admite el elemento canvas
+        </canvas>
+    </section>
+</body>
+</html>
