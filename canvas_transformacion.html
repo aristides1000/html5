@@ -18,23 +18,92 @@
 
             lienzo = elemento.getContext("2d");
 
-            lienzo.font = "bold 20px verdana";
+            /*inicio Video 33 Transformaciones parte 1*/
+
+            /* lienzo.font = "bold 20px verdana";
 
             lienzo.fillText("Hola Alumnos", 50, 20);
 
-            lienzo.translate(100,100);
+            lienzo.translate(100,100); */
 
-            /* lienzo.scale(3,1); *//*Estos valores son multiplicados en el siguiente orden (x,y)*/
-            lienzo.scale(3,3);/*Estos valores son multiplicados en el siguiente orden (x,y)*/
-            /* lienzo.scale(0.5,3); *//*Estos valores son multiplicados en el siguiente orden (x,y)*/
+            /* lienzo.scale(3,1); */
+            /*Estos valores son multiplicados en el siguiente orden (x,y)*/
+            /* lienzo.scale(3,3); */
+            /*Estos valores son multiplicados en el siguiente orden (x,y)*/
+            /* lienzo.scale(0.5,3); */
+            /*Estos valores son multiplicados en el siguiente orden (x,y)*/
 
             /*objeto.método*/
-            lienzo.rotate(Math.PI);
+            /* lienzo.rotate(Math.PI); */
 
             /* lienzo.fillText("Hola Alumnos", 50, 20); */
-            
+
             /*Con esta modificación movemos la aparición del texto*/
-            lienzo.fillText("Hola Alumnos", -200, -150);
+            /* lienzo.fillText("Hola Alumnos", -200, -150); */
+
+            /*fin Video 33 Transformaciones parte 1*/
+
+            /*inicio Video 34 Transformaciones parte 2*/
+
+            /* lienzo.transform(1, 0, 0, 1, 0, 0); */
+            /*Estos son los valores por defecto del método transform*/
+            /* lienzo.transform(3, 1, 2, 3, 150, 200); */
+            /*el 1er valor representa la multiplicación de la escala en el eje X si es por 3 entonces se triplica la escala*/ /*el 4to valor representa la multiplicación de la escala en el eje Y si es por 3 entonces se triplica la escala*/ /*El 5to y 6to hace referencia a dónde colocamos el origen del lienzo*/ /*El 3er valor hace cursivo el texto o la imagen según el valor que le coloquemos*/ /*el 2do valor representa la rotación del canvas expresado en radianes, comprendiendo que una circunferencia posee aproximadamente 6,2832 que es igual al valor del número PI*2*/
+
+            /*OJO el método transform es acumulativo quiere decir que si pongo otra vez transform va a sumar los valores anteriores con los nuevos que hayamos escrito OJO*/
+            /*Ejemplo*/
+            /* lienzo.transform(3, 0, 0, 1, 0, 0); */
+            /*continúa más adelante el Ejemplo*/
+
+            /* lienzo.font = "bold 20px verdana";
+
+            lienzo.fillText("Hola alumnos", 50, 50); */
+
+            /*continuación del Ejemplo*/
+            /* lienzo.transform(1, 0, 0, 10, 0, 0); */ /*el 1er valor multiplica al 3 anterior del transform, por ende 3*1=3 nos lo deja igual que antes*/
+
+            /* lienzo.font = "bold 20px verdana";
+
+            lienzo.fillText("Hola alumnos", 50, 50); */
+            /*fin del Ejemplo*/
+
+            /*Si no queremos que esto suceda lo que debemos hacer es aplicar el método setTransform, con este método podemos hacer los cambios desde el principio sin temor a acumular el transform*/
+
+            /*Ejemplo de setTransform*/
+
+            /* lienzo.setTransform(1, 0, 0, 10, 0, 0);
+
+            lienzo.font = "bold 20px verdana";
+
+            lienzo.fillText("Hola alumnos", 50, 50); */
+
+            /*fin del Ejemplo de setTransform*/
+
+            lienzo.font = "bold 20px verdana";
+
+            lienzo.save();/*con esto guardamos las configuraciones del lienzo con el fin de usarlas más adelante*/
+
+            lienzo.fillText("Hola Alumnos", 50, 50);
+
+            lienzo.translate(60,70);/*Traslada el origen x,y del lienzo, comprendiendo que el origen parte de la esquina superior izquierda*/
+
+            lienzo.rotate(Math.PI/180*55);/*rotate sirve para rotar el lienzo y está exprezado en radianes*/
+
+            lienzo.fillText("Hola Alumnos", 0, 0);
+
+            /* lienzo.rotate(-Math.PI/180*55); *//*colocando (-Math.PI/180*55) estoy haciendo que el lienzo vuelva a estar en la posición original en la que estaba*/
+            /*con el método restore() devolvemos los valores por defecto del canvas con relación de dónde colocámos el punto de guardado de esta forma no hay necesidad de hacer cálculos al punto que hayamos hecho el guardado por código*/
+           /*de esta forma*/
+           lienzo.restore(); 
+
+            lienzo.translate(300, 400);
+
+            lienzo.scale(2,2);
+
+            lienzo.fillText("Hola Alumnos",100 ,100);
+
+            /*fin Video 34 Transformaciones parte 2*/
+
         }
 
         window.addEventListener("load", comenzar, false);
