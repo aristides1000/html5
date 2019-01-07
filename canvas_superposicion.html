@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Superposiciones Canvas</title>
+    <style>
+        #lienzo {
+            border: 1px solid #F00;
+        }
+    </style>
+    <script>
+        function comenzar() {
+            var elemento = document.getElementById("lienzo");
+
+            lienzo = elemento.getContext("2d");
+
+            /*Vamos a dibujar en nuestro canvas dos trazados un rectángulo y un texto*/
+            /*el texto va a pasar por encima del rectángulo*/
+            /* lienzo.fillStyle = "#880000";
+
+            lienzo.fillRect(400, 225, 300, 100); */
+
+            /*Con estas propiedades le decimos al texto que está debajo del rectángulo*/
+            /* lienzo.globalCompositeOperation="destination-atop"; *//*lo monta arriba*/
+            /* lienzo.globalCompositeOperation="source-in"; *//*mascar de recorte*/
+            /* lienzo.globalCompositeOperation="source-out"; *//*mascar de recorte*/
+
+            /* lienzo.fillStyle="#AAAAFF";
+
+            lienzo.font="bold 80px verdana";
+
+            lienzo.textAlign="center";
+            
+            lienzo.testBaseline="middle";
+
+            lienzo.fillText("Hola Alumnos", 550, 300); */
+
+            /*Ahora vamos a colocar imágenes en el canvas*/
+            var imagen=new Image();
+
+            imagen.src="http://www.pensandoamericas.com/sites/default/files/blogs_imagenes/dia_mundial_del_arbol.jpg";/*se puede buscar muy fácilmente a través de la propiedad src y puede estár localmente o en la web*/
+
+            imagen.addEventListener("load", function(){
+                /*Esta es una función anónima y es una función anónima ya que no tiene nombre*/
+                /* lienzo.drawImage(imagen,250,300,400,350) *//*El 1er valor representa la posición inicial de aparición en el eje X de la imagen, el 2do valor representa la posición inicial de aparición en el eje Y de la imagen*//*El 3er valor representa el ancho en pixeles que le queremos dar a la imagen, el 4to valor representa el alto en pixeles que le queremos dar a la imagen*/
+                /*Vamos a decirle a nuestra imagen que tome el valor del tamaño del canvas de la siguiente forma*/
+                /* lienzo.drawImage(imagen,0,0,elemento.width,elemento.height) */
+                /*Ahora vamos a hacer uso de drawImage pero con muchos más parámetros*/
+                lienzo.drawImage(imagen,50,10,75,75,0,0,300,300)/*el 1er y el 2do parámetro lo que nos dice es a partir de donde comenzámos a recortar la imagen*/
+                /* el 3er y 4to parámetro hace referencia al tamaño de la imagen antes de recortar y es en px quiere decir que en base a esta medida es a partir de ella que vamos a empezar a recortar*/
+                /*el 5to y 6to valor nos dice dónde queremos dibujar la imagen dentro del canvas, al decirle 0,0 le quiero decir que esa imagen recortada deseo que la voy a dibujar partiendo de la coordenada 0,0 osea de la esquina superior izquierda*/
+                /*el 7mo y 8vo valor hace referencia al tamaño final del recorte, osea hasta dónde va a recortar*/
+                /*Esta es la sintaxis más compleja que tiene la propiedad "drawImage"*/
+            },false);
+
+            /*Hay otra forma de tratar las imágenes*/
+
+        }
+        window.addEventListener("load", comenzar, false);
+    </script>
+</head>
+
+<body>
+    <section>
+        <canvas width="1200" height="900" id="lienzo">
+            Su navegador no admite el elemento Canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
