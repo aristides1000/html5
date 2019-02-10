@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación</title>
+</head>
+<style>
+    #lienzo {
+        border: 1px solid #F00;
+    }
+</style>
+<script>
+    /* var y = 0; */
+    /* Si lo que deseamos es que al llegar al suelo se detenta la esfera debemos hacer lo siguiente */
+    var y = 300;
+    /* Ahora bien, si lo que deseo es que la pelota rebote debo modificar mis variables */
+    /* Crearé una variable denominada estado cuyos dos valores sean subiendo y bajando y en base a ellos determinaré el movimiento de la pelota */
+    var estado = "bajando";
+    /* Si queremos que el balón rebote y vaya perdiendo fuerza debemos hacer lo siguiente */
+    var arriba = y;
+    
+    /* Ahora bien si lo que queremos es que la pelota vaya de lado a lado en le eje de las x lo que tenemos que hacer es lo siguiente */
+    var horizontal = 0;
+
+    function comenzar() {
+        var elemento = document.getElementById("lienzo");
+        lienzo = elemento.getContext("2d");
+        setInterval(animacion, 5);
+    }
+
+    function animacion() {
+        /* if (y < 900) { */
+        /* esto es para que la pelota se detenga en el borde inferior del canvas */
+        /* Esto es lo que debo hacer si quiero que la pelota rebote */
+        if (y < 850 && estado == "bajando") {
+            /* se le coloca doble igual porque en javascript el operador de comparación es un doble igual */
+            lienzo.clearRect(0, 0, 1200, 900);
+            lienzo.beginPath();
+            lienzo.arc(500, /* 300 + y */ y, 40, 0, Math.PI * 2, false);
+            lienzo.fill();
+            y += 5; /* esto es lo mismo que esto "y=y+50" */
+
+            /* con esto le decimos que la pelota corra hacia la derecha */
+            horizontal += 2;/*esto es lo mismo que horizontal = horizontal + 2*/
+        }
+
+        if (y == 850) {
+            /*debemos hacer esto para que la pelota rebote, pierda fuerza y quede en el suelo*/
+            arriba += 50; /* esto es lo mismo que decir: arriba = arriba + 50; */
+            estado = "subiendo";
+        }
+
+        if (y >= /* 300 */ arriba /* esto se hace para que tome un valor variable */ && estado == "subiendo") {
+            lienzo.clearRect(0, 0, 1200, 900);
+            lienzo.beginPath();
+            lienzo.arc(500, /* 300 + y */ y, 40, 0, Math.PI * 2, false);
+            lienzo.fill();
+            y -= 5; /* esto es lo mismo que esto "y=y-50" */
+        }
+
+        if (y == /* 300 */ arriba /* esto se hace para que el valor de "y" varíe y la pelota rebote */){
+            estado="bajando";
+        }
+
+    }
+
+    window.addEventListener("load", comenzar, false);
+</script>
+
+<body>
+    <section>
+        <canvas width="1200" height="900" id="lienzo">
+            Su navegador no admite el elemento Canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
