@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animación</title>
+</head>
+<style>
+    #lienzo {
+        border: 1px solid #F00;
+    }
+</style>
+<script>
+    /* En este código vamos a hacer la animación de los ojos que miran al puntero */
+    /* var y = 0; */
+    /* Si lo que deseamos es que al llegar al suelo se detenta la esfera debemos hacer lo siguiente */
+    var y = 300;
+    /* Ahora bien, si lo que deseo es que la pelota rebote debo modificar mis variables */
+    /* Crearé una variable denominada estado cuyos dos valores sean subiendo y bajando y en base a ellos determinaré el movimiento de la pelota */
+    var estado = "bajando";
+    /* Si queremos que el balón rebote y vaya perdiendo fuerza debemos hacer lo siguiente */
+    var arriba = y;
+
+    /* Ahora bien si lo que queremos es que la pelota vaya de lado a lado en le eje de las x lo que tenemos que hacer es lo siguiente */
+    var horizontal = 0;
+
+    function comenzar() {
+        var elemento = document.getElementById("lienzo");
+        lienzo = elemento.getContext("2d");
+        /* Aquí le vamos a decir al navegador que ante el evento de movimiento del ratón ejecute una acción */
+        window.addEventListener("mousemove", animacion, false);
+    }
+
+    function animacion(e) {
+        /* se le coloca (e) como parámetro ya que la función va arecoger un evento */
+        /* Vamos a crear la función del ojo que sigue al puntero */
+        /* Ahora bien, vamos a tener que hacer uso de dos propiedades las cuales son clientX y clientY, Estas propiedades lo que hacen es devolvernos la posición (x,y) del puntero del cliente dentro de nuestra página web */
+        /* Pero antes de ello vamos a crear una alerta para que la máquina nos diga donde se encuentra el ratón */
+        /* alert(e.clientX + " " + e.clientY); */
+        lienzo.clearRect(0, 0, 1200, 900);
+        var xdelraton = e.clientX;
+        var ydelraton = e.clientY;
+        /* Con lo anterior almaceno en dos variables las posiciones x e y con la finalidad de saber su posición */
+        var xcentro = 550;
+        var ycentro = 325;
+
+        /* Ahora voy a redondear valores con la propiedad Math a través de una variable */
+        var angulo = Math.atan2(xdelraton - xcentro, ydelraton - ycentro);
+
+        var x = xcentro + Math.round(Math.sin(angulo) * 10);
+        var y = ycentro + Math.round(Math.cos(angulo) * 10);
+
+        lienzo.beginPath();
+
+        /* Aquí le decimos que dibuje el contorno de los ojos */
+        lienzo.arc(xcentro, ycentro, 20, 0, Math.PI * 2, false);
+
+        /* ahora movemos la punta del lapiz a otro espacio del canvas ya que deseamos dibujar el otro contorno del ojo */
+        lienzo.moveTo(620, 325);
+        lienzo.arc(600, ycentro, 20, 0, Math.PI * 2, false);
+
+        /* Luego le decimos que nos dibuje estos dos círculos con la siguiente instrucción */
+        lienzo.stroke();/* stroke dibuja el contorno sin relleno */
+
+        /* Ahora vamos a dibujar el interior de los dos ojos */
+        lienzo.beginPath();
+        /* Primer Ojo interno */
+        lienzo.arc(x, y, 10, 0, Math.PI * 2, false);
+
+        lienzo.moveTo(x, y);
+        /* Segundo Ojo Interno */
+        lienzo.arc(x + 50, y, 10, 0, Math.PI * 2, false);
+        
+        lienzo.fill();/* fill rellena la figura como queramos */
+
+    }
+
+    window.addEventListener("load", comenzar, false);
+</script>
+
+<body>
+    <section>
+        <canvas width="1200" height="900" id="lienzo">
+            Su navegador no admite el elemento Canvas
+        </canvas>
+    </section>
+</body>
+
+</html>
