@@ -6,35 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Prueba_arrastre</title>
-    <style>
-        #cajaimagen {
-            float: left;
-            width: 300px;
-            margin: 30px;
-            border: 1px solid #F00;
-        }
-        #zonadestino{
-            float:left;
-            width: 550px;
-            height: 400px;
-            margin: 100px;
-            border: 1px solid #00F;
-        }
-    </style>
-    <script>
-        function comenzar() {
-            var elem_origen = document.getElementById("imagen");
-            /* elem_origen.addEventListener("dragstart", function () {alert("Comenzó el evento");}, false); */ /* Aquí en lugar de llamar a una función lo que hacemos es ejecutar una función anónima */
-            /* El evento dragstart se desencadena al momento de iniciar el arrastrado de un objeto */
-            /* Ahora bien, vamos a hacer uso del evento dragend, que se ejecuta al momento de finalizar el arrastrado del elemento, y vamos a visualizarlo con el siguiente ejemplo */
-            /* elem_origen.addEventListener("dragend", function () {alert("Finalizó el evento");}, false); */
-            /* El evento drag se ejecuta al momento de arrastrar el elemento */
-            /* elem_origen.addEventListener("drag", function () {alert("Se  el evento");}, false); */
-            elem_origen.addEventListener("dragstart", function () {alert("Se  el evento");}, false);
-        }
+    <link rel="stylesheet" href="dragdrop.css">
 
-        window.addEventListener("load", comenzar, false);
-    </script>
+    <script src="dragdrop.js"></script>
 </head>
 
 <body>
