@@ -10,6 +10,10 @@ function comenzar(){
 
         imagenes[i].addEventListener("dragstart", comenzando_arrastrar, false);
 
+        if(i != 1){ /* esto se hace con la finalidad de no poder arrastrar la imagen 1 */
+            imagenes[i].addEventListener("dragend", terminado, false);
+        }
+
     }
 
     /* var elem_destino = document.getElementById("zonadestino"); */ /* esta línea de código genera el error del ámbito local de las variables, ya que no se encuentra declarada de forma global, este error ya ah sido visto en videos anteriores */
@@ -43,24 +47,45 @@ function soltado(e){
 
     e.preventDefault();
 
-    var id = e.dataTransfer.getData("Text"); /* Esta Línea de código captura la info enviada por SetData */
+    var id = e.dataTransfer.getData("Text"); /* Esta Línea de código captura la info enviada por SetData que este caso es el atributo id de la etiqueta HTML */
 
-    var src = document.getElementById(id).src;
+    if(id != "imagen2"){
 
-    elem_destino.innerHTML = "<img src='" + src + "'>";
+        var src = document.getElementById(id).src;
 
-    /* la propiedad innerHTML lo que hace es inyectar código HTML en javascript */
+        elem_destino.innerHTML = "<img src='" + src + "'>";
 
-    /* el caracter de concatenación en javascript es el + */
+        /* la propiedad innerHTML lo que hace es inyectar código HTML en javascript */
 
-    /* lo de tantas comillas son fundamentos de javascript */
+        /* el caracter de concatenación en javascript es el + */
+
+        /* lo de tantas comillas son fundamentos de javascript */
+    } else { /* esto se hizo con la finalidad de que cuando se coloque la imagen2 no nos permita colocarla y nos coloque el fondo de la zonadestino en color rojo y nos coloque un mensaje en el Document Object Model del HTML "DOM" */
+
+        elem_destino.innerHTML="La imagen no es admitida";
+
+        elem_destino.style.background = "#fa0d29"
+
+    }    
+
 }
 
 function entrando(e){
 
     e.preventDefault();
 
-    elem_destino.style.background = "rgba(8,252,25,.8)";
+    var id = e.dataTransfer.getData("Text"); /* Esta Línea de código captura la info enviada por SetData que este caso es el atributo id de la etiqueta HTML */
+    /* Esto se hace con la finalidad de poder capturar y utilizar el id */
+
+    if(id != "imagen2"){
+
+        elem_destino.style.background = "rgba(8,252,25,.8)";
+
+    } else {
+
+        elem_destino.style.background = "#fa0d29";
+
+    }
 
 }
 
@@ -68,6 +93,14 @@ function saliendo(e){
     e.preventDefault();
 
     elem_destino.style.background = "#FFF";
+}
+
+function terminado(e){ /* la (e) representa al objeto evento o al object event */
+
+    var elemento = e.target;
+
+    elemento.style.visibility = "hidden";
+
 }
 
 window.addEventListener("load", comenzar, false);
