@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Arrastre Archivos</title>
+
+    <link rel="stylesheet" href="dragdrop.css">
+    <!-- cómo el código javascript es corto usamos el código dentro del mismo archivo HTML de la siguiente manera -->
+    <script>
+        function comenzar(){
+            soltar = document.getElementById("zonadestino"); /* OJO OJO OJO "zonadestino" va entre comillas dobles */
+
+            soltar.addEventListener("dragenter", function(e){
+                e.preventDefault();}, false);
+
+            /* hacemos lo mismo con el evento dragover */
+
+            soltar.addEventListener("dragover", function(e){
+                e.preventDefault();}, false);
+
+            soltar.addEventListener("drop", soltado, false);
+        }
+
+        function soltado(e){
+            e.preventDefault(); /* resetea el browser */
+
+            var archivos = e.dataTransfer.files;/* la propiedad dataTransfer.files devuelve un array con varias posiciones contentiva con informaciones del archivo arrastrado */
+
+            var listado = ""; /* esto lo hacemos apra que no nos diga undefinned */
+            /* var ver_tipo_archivo = "";
+            var ver_espacio_archivo = ""; */
+            /* se procede a recorrer el array que hemos creado a través de dataTranfer.files */
+
+            for(var f=0; f<archivos.length; f++){
+                console.log((archivos[f].size/1024).toFixed(2)); /* esto sirve para saber el tamaño de un o la info que queremos consultar */ /* con .toFixed(2) recortamos los deimales que aparecen */
+
+                /* listado = archivos[f].name; */ /* esto busca la posición cualquiera que sea en archivo, (por eso le colocamos archivos[f]), que contenga el parámetro name y lo almacenamos en listado */
+
+                /* si deseo arrastrar varios archivos hago lo siguiente a la variable listado le agregamos += */
+
+                listado += "Archivo: " + archivos[f].name + "<br> Peso: " + (archivos[f].size/1024).toFixed(2) + " Kb" + "<br> Tipo: " + archivos[f].type + "<br> Fecha: " + /* archivos[f].lastModifiedDate *//* la anterior es para fechas largas *//* La que sigue es para fehcas cortas o procesadas */archivos[f].lastModifiedDate.toLocaleDateString() + "<br><br>"; /* para colocar el formato de fecha corta hay que colocar un punto y el siguiente método a la fecha toLocaleDateString() */
+
+                /* el operardor += es para incrementar */
+
+                /* ver_tipo_archivo = archivos[f].type; */
+
+                /* ver_espacio_archivo = (archivos[f].size/1024).toFixed(2) + " kb";  *//* con .toFixed(2) recortamos los deimales que aparecen */
+            }
+
+            /* ahora sólo queda mostrar el contenido de listado en zonadestino, recordar que la asosiamos aquí con getElementById */
+
+            soltar.innerHTML = listado/*  + "<br>" + ver_tipo_archivo + "<br>" + ver_espacio_archivo */;/* aquí lo que hacemos es asignarle lo que está almacenado en listado a soltar con la propiedad innerHTML estamos inyectando esos valores */
+            /* soltar.innerHTML = ver_espacio_archivo; */ /* esto genera un error */
+        }
+
+        window.addEventListener("load", comenzar, false);
+    </script>
+
+</head>
+<body>
+    <section id="zonadestino">
+        Arrastre Aquí
+    </section>
+</body>
+</html>
