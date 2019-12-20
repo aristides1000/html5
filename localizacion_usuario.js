@@ -37,19 +37,25 @@ function mostrar_posicion(posicion){ /* Aquí llamamos posicion al objeto positi
 
     /* var latitud = "Latitud: " + posicion.coords.latitude; */ /* esta línea devuelve la latitud */
 
-    var miubicacion = "";
+    /* var miubicacion = "";
 
     miubicacion += "Latitud: " + posicion.coords.latitude + "<br>";
 
     miubicacion += "Longitud: " + posicion.coords.longitude + "<br>";
 
-    miubicacion += "Exactitud: " + posicion.coords.accuracy + "<br>";
+    miubicacion += "Exactitud: " + posicion.coords.accuracy + "<br>"; */
+
+    /* Aquí comienza el video 47 */
+
+    var mimapa = "http://maps.google.com/maps/api/staticmap?center=" + posicion.coords.latitude + "," + posicion.coords.longitude + "," + "&zoom=12&size=400x400&sensor=false&markers" + posicion.coords.latitude + "," + posicion.coords.longitude;
 
     /* este operador += ya se vió en el video anterior de drag & drop de las propiedades de los archivos este es el que me permite incrementar los resultados */
 
     /* ubicacion.innerHTML = latitud; */
 
-    ubicacion.innerHTML = miubicacion;
+    /* ubicacion.innerHTML = miubicacion; */
+
+    ubicacion.innerHTML = "<img src='" + mimapa + "'>";
 
 }
 
