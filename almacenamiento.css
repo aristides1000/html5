@@ -1,0 +1,29 @@
+#contenedor{
+    width: 50%;
+    margin: auto;
+    padding-top: 50px;
+} /* Aquí no lleva ";" */
+
+#zonaformulario{
+    float: left;
+    padding: 20px;
+    border: 1px solid #039;
+    margin-left: 150px;
+}
+
+#zonadatos{
+    float: right;
+    width: 300px;
+    margin-left: 20px;
+    padding: 20px;
+    border: 1px solid #F00;
+}
+
+#clave, #valor{
+    width: 180px;
+}
+
+#zonadatos div{
+    padding: 15px;
+    border-bottom: 3px solid #00F;
+}
