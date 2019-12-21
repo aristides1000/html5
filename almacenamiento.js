@@ -13,7 +13,11 @@ function itemNuevo(){
 
     var valor = document.getElementById("valor").value; /* lo mismo que en la explicación de arriba */
 
-    sessionStorage.setItem(clave, valor); /* con sessionStorage almaceno los datos hasta que se cierre la pestaña */ /* setItem envía datos */
+    /* sessionStorage.setItem(clave, valor); */ /* con sessionStorage almaceno los datos hasta que se cierre la pestaña */ /* setItem envía datos */
+
+    /* Vamos a proceder a cambiar las instrucciones de sessionStorage por localStorage */
+
+    localStorage.setItem(clave, valor);
 
     /* Lo de arriba se puede escribir de otra manera guardando las posiciones del array como claves, donde cada clave esté asosiada a un valor, eso lo hacemos de la siguienete manera */
 
@@ -48,11 +52,17 @@ function leer_mostrar(clave){
 
     /* zonadatos.innerHTML = ""; */ /* hay que quitar esta instrucción porque va a sobre-escribir la información que le estamos pasando arriba y no va a mostrar la informa */ /* esa linea tiene como finalidad borrar el texto de "A la espera de Información" */
 
-    for(i=0;i<sessionStorage.length;i++){
+    /* for(i=0;i<sessionStorage.length;i++){ */
 
-        var clave = sessionStorage.key(i); /* a través de este nuevo atributo de sessionStorage que es el atributo .key(i) podemos obtener a cada una de las posiciones del array generado por el bucle for, esta es la principal función del atributo .key(i), la i representa la posición del bucle for */
+    for(i=0;i<localStorage.length;i++){
 
-        var elvalor = sessionStorage.getItem(clave); /* con el atributo .getItem de sessionStorage capturamos los datos enviados por setItem y este caso, esos datos los estamos almacenando en una variable */
+        /* var clave = sessionStorage.key(i); */ /* a través de este nuevo atributo de sessionStorage que es el atributo .key(i) podemos obtener a cada una de las posiciones del array generado por el bucle for, esta es la principal función del atributo .key(i), la i representa la posición del bucle for */
+
+        var clave = localStorage.key(i);
+
+        /* var elvalor = sessionStorage.getItem(clave); */ /* con el atributo .getItem de sessionStorage capturamos los datos enviados por setItem y este caso, esos datos los estamos almacenando en una variable */
+
+        var elvalor = localStorage.getItem(clave);
 
         /* zonadatos.innerHTML += "<div>Clave: " + clave + "--" + "Valor: " + elvalor + "</div>"; */ /* El += es un operador de incremental y se debe utilizar para poder usarlo dentro del ciclo for */
 
@@ -70,7 +80,9 @@ function eliminarTodo(){
 
     if(confirm("Estas seguro de eliminar Todo lo almacenado?")){
         /* El confirm lo que hace es es lanzar un alert con un botón aceptar y un botón cancelar si le damos aceptar entra en el código del if */
-        sessionStorage.clear();
+        /* sessionStorage.clear(); */
+
+        localStorage.clear();
 
         leer_mostrar();
     }
@@ -81,7 +93,8 @@ function eliminarItem(clave){
     /* le pasamos como parámetro la propiedad clave, ya que la habíamos pasado con ella a través del innerHTML  */
     if(confirm("Estás seguro de eliminar este Item?")){
 
-        sessionStorage.removeItem(clave);
+        /* sessionStorage.removeItem(clave); *//* esta instrucción elimina un sólo item */
+        localStorage.removeItem(clave);
 
         leer_mostrar();
 
