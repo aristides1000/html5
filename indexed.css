@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+#contenedor{
+	margin:auto;
+	position:relative;
+	width:50%;
+	
+}
+#cajaformulario{
+	float:left;
+	padding:30px;
+	border:1px solid #00F;
+	
+}
+
+#zonadatos{
+	float:left;
+	width:410px;
+	margin-left:20px;
+	padding:20px;
+	border:1px solid  #F00;
+}
+
+#clave, #texto{
+	width:200px;
+}
+
+#cajadatos div{
+	
+	padding:5px;
+	border-bottom:1px solid #999999;
+}
