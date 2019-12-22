@@ -63,15 +63,46 @@ function agregarobjeto(){
 
     /* después de verificar que se haya almacenado la información en nuestra base de datos de indexedDB procedemos a dejar vacíos los inputs de los que tomamos la información de la siguiente manera */
 
+    /* luego de lo anterior vamos a proceder a mostrar en la vista frontEnd específicamente en la sección que hemos escogido la información que queremos */
 
-    
+    agregar.addEventListener("success", mostrar, false);/* Esto lo que quiere decir es que si agregar tiene éxito (y por ello encontramos el evento "success") ejecute la función mostrar */
+
     document.getElementById("clave").value = ""; /* esta forma dejamos vaciós los inputs cuyos valores acabamos de capturar */
 
     document.getElementById("texto").value = "";
 
     document.getElementById("fecha").value = "";
+}
 
+function mostrar(){
+    zonadatos.innerHTML = "";
 
+    var transaccion = bd.transaction(["gente"], "readonly"); /* Aquí creamos una transacción que sea de readonly */
+
+    var almacen = transaccion.objectStore("gente"); /* Aquí almacenamos dicha transacción */
+
+    /* ahora bien, vamos a proceder a crear un cursor y lo hacemos de la siguiente manera */
+
+    var cursor = almacen.openCursor(); /* .openCursor es otro método de la API indexedDB que permite crear un cursor */
+
+    /* ahora bien, le vamos a decir a nuestro sisteme que si tiene éxito la creación del cursor ejecute una función */
+
+    cursor.addEventListener("success", mostrarDatos, false);/* el evento va en minúsculas, y esto se debe por el largo cuento de case sensitive */
+}
+
+function mostrarDatos(e){ /* Aquí pasamos la función con el parámetro e de evento */
+
+    var cursor = e.target.result; /* Aquí almacenamos el objeto del evento "e" en una variable llamada cursor */
+
+    if(cursor){ /* Aquí hacemos un condicional if que dice que si hay un cursor entre en el siguiente código */
+
+        zonadatos.innerHTML += "<div>" + cursor.value.clave + " - " + cursor.value.titulo + " + " + cursor.value.Fecha + "</div>"; /* Hay que estar pendiente aquí con Fecha, ya que esa variable está guardada con la F en mayúscula, si la colocamos con f miníscula como píldoras informáticas nos va  asaltar un error porque no es lo mismo la variable fecha que Fecha, por el tema del case sensitive */
+        /* Aquí le decimos a nuestro código que incerte código HTML desde el javascript, y eso lo hacemos con el innerHTML */ /* le colocamos el auto incremental de += para que siempre agregue códigos nuevos de html y no sobre escriba lo ya escrito */
+
+        cursor.continue(); /* El cursor.continue() va dentro del if(cursor){} del  */
+    }
+
+    /* Ahora bien, vamos a decirle al cursor que avance, y lo hacermos de la siguiente manera */
 
 }
 
