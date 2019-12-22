@@ -17,17 +17,50 @@ function procesar(e){ /* a esta función se le pasa por parámetro el objeto eve
 
     /* esta propiedad file hace referencia a una matriz, donde, cada uno de los archivos que seleccionemos, representa una posición en esa matriz */
 
+    /* vamos a decirle a partir de aquí que el tipo de archivo tiene que ser de imagen con las siguientes instrucciones y a partir de aquí arranca el video 55 */
+
+    zonadatos.innerHTML = ""; /* de esta forma vaciamos la información contrenida en zonadatos */
+
     var mi_archivo = archivos[0]; /* aquí lo que estamos haciendo en asignandole a una variable la posición [0] de la matriz que generó .files y a la que a su vez se la asignamos a la variable archivos */
 
     /* Ahora vamos a crear un lector para poder leer la información generada */
 
-    var lector = new FileReader(); /* Aquí estamos creando un lector y lo estamos almacenando en una variable */
+    /* mediante el siguiente alert vamos a verificar que tipo de archivo es el que estamos cargando */
 
-    lector.readAsText(mi_archivo/* , "UTF-8" */);/* Aquí estoy leyendo como texto mi archivo */ /* con readAsText, le podemos pasar un segundo parámetro el cuál es el del tipo de codificación y se lo pasamos con una coma y después el formato de lectura de caratéres */ /* Cabe acotar que si no se le coloca este parametro va a tomar por defecto el de UTF-8 */
+    /* alert(mi_archivo.type); */ /* este alert nos dice el tipo de archivo */
+
+    if(!mi_archivo.type.match(/image/)){ /* Aquí estamos creando un condicional que nos dice si mi archivo no es una imagen */ /* (/image/) es una expresión regular en javascript, para poder entenderlo del todo tenemos que hacer el curso de javascript contenido en el canal de píldoras informáticas en youtube */
+
+        alert("Selecciona una imagen, por favor");
+
+    }else{/* si no no es una imagen, osea, la doble negación genera un verdad, si es una imagen */
+
+        zonadatos.innerHTML += "Nombre del archivo: " + mi_archivo.name + "<br>";
+
+        /* zonadatos.innerHTML += "Tamaño del archivo: " + mi_archivo.size + "bytes <br>";  *//* Aquí podemos observar que se puede modificar el resultado de byte para que nos devuelva kilobyte de la siguiente manera */
+
+        /* zonadatos.innerHTML += "Tamaño del archivo: " + mi_archivo.size/1024 + "kb <br>"; */ /* el número de kb me dá demasiados desimales, para eliminar ese poco de decimales hacemos lo siguiente */
+
+        /* zonadatos.innerHTML += "Tamaño del archivo: " + mi_archivo.size/1048576 + " mb <br>"; */ /* esto es en megabytes */
+
+        zonadatos.innerHTML += "Tamaño del archivo: " + Math.round(mi_archivo.size/1024) + " kb <br>";
+
+        var lector = new FileReader(); /* Aquí nos creamos el lector */
+
+        /* lector.readAsText(mi_archivo); */ /* en este caso ya no podemos usar el método .readAsText ya que este método lee como texto, por al contrario tenemos que usar el método .readAsDataURL este método lo que hace es devolvernos la información del archivo en formato URL y esa URL se puede utilizar para muchos propósitos, como lo son el de incrustarlo dentro de un código HTML y deesa forma nos salga la imágen */
+
+        lector.readAsDataURL(mi_archivo);
+
+        lector.addEventListener("load", mostrar_en_web, false);
+    }
+
+    /* var lector = new FileReader(); */ /* Aquí estamos creando un lector y lo estamos almacenando en una variable */
+
+    /* lector.readAsText(mi_archivo *//* , "UTF-8" *//* ); */ /* Aquí estoy leyendo como texto mi archivo */ /* con readAsText, le podemos pasar un segundo parámetro el cuál es el del tipo de codificación y se lo pasamos con una coma y después el formato de lectura de caratéres */ /* Cabe acotar que si no se le coloca este parametro va a tomar por defecto el de UTF-8 */
 
     /* Ahora procedemos a colocar al lector a la escucha de un evento */
 
-    lector.addEventListener("load", mostrar_en_web, false);/* aquí dijimos que cuando cargue lector me ejecute la función mostrar_en_web */
+    /* lector.addEventListener("load", mostrar_en_web, false); *//* aquí dijimos que cuando cargue lector me ejecute la función mostrar_en_web */
 
 }
 
@@ -37,8 +70,11 @@ function mostrar_en_web(e){/* Aquí le pasamos el objeto que ha desencadenado el
 
     var resultado = e.target.result; /* Aquí estamos almacenando el resultado del objeto evento en una variable */
 
-    zonadatos.innerHTML = resultado;
+    /* zonadatos.innerHTML = resultado; */ /* esta instrucción cámbia ligeramente con la finalidad de que se nos permita ver la imagen */
 
+    /* zonadatos.innerHTML += "<img src='" + resultado + "'>"; */ /* en resultado está almacenada una ruta URL */
+
+    zonadatos.innerHTML += "<img src='" + resultado + "' width='100%'>";
 }
 
 window.addEventListener("load", comenzar, false);
