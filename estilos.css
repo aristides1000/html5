@@ -1,0 +1,25 @@
+#contenedor{
+    width: 1200px;
+    position: relative;
+    margin: auto;
+}
+
+#zonaformulario{
+    float: left;
+    padding: 30px;
+    border: 2px solid #F00;
+}
+
+#zonadatos{
+    float: left;
+    width: 500px;
+    margin-left: 20px;
+    padding: 20px;
+    border: 2px dashed #00F;
+}
+
+.directorio{
+    color: #00F;
+    font-weight: bold;
+    cursor: pointer;
+}
