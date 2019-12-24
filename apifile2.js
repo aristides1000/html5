@@ -80,11 +80,11 @@ function crearsis(sistema){ /* cuando ejecutamos llamamos en la línea de arriba
 
 } */
 
-function modificar(){
+/* function modificar(){ */
 
     /* primeramente vamos a almacenar lo que el usuario haya escrito en el primer y el segundo input */
 
-    var origen = document.getElementById("archivo_origen").value;
+    /* var origen = document.getElementById("archivo_origen").value;
 
     var destino = document.getElementById("directorio_destino").value;
 
@@ -94,13 +94,31 @@ function modificar(){
         }, errores);
     }, errores);
 
+} */
+
+function modificar(){
+
+    var origen = document.getElementById("archivo_origen").value;
+
+    origen = ruta + origen;
+
+    /* espacio.getFile(origen, null, function(archivo){
+        archivo.remove(exito, errores); */ /* el método remove tiene 2 parámetros */
+   /*  }, errores); */ /* esto es para eliminar archivos */
+
+    espacio.getDirectory(origen, null, function(archivo){
+        archivo.removeRecursively(exito, errores);
+    }, errores);
+    /* Estas líneas de código funcionan para eliminar directorios con archivos dentro */
+
+
 }
 
 function exito(){
 
     document.getElementById("archivo_origen").value = "";
 
-    document.getElementById("directorio_destino").value = "";
+    /* document.getElementById("directorio_destino").value = ""; */ /* esta linea de código no nos sirve para eliminar porque ya no está "directorio_destino" */
 
     mostrar();
 
