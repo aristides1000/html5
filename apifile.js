@@ -66,7 +66,7 @@ function crearsis(sistema){ /* cuando ejecutamos llamamos en la línea de arriba
 
 function crear(){
 
-    var nombre_archivo = docuemnt.getElementById("entrada").value;
+    var nombre_archivo = document.getElementById("entrada").value;
 
     if(nombre_archivo != ""){/* quiere decir que si hay datos en nombre archivo */
 
@@ -120,11 +120,42 @@ function listar(archivos){
 
         }else if(archivos[i].isDirectory){ /* si esto retorna true entra en el if osea que si lo que estamos leyendo es un directorio entra en el if, el método isDirectory verifica que lo que estamos seleccionando sea un archivo */
 
-            zonadatos.innerHTML += "<span class='directorio'>" + archivos[i].name + "</span><br>"; /* Aquí incrustamos código html */
+            zonadatos.innerHTML += "<span onclick='cambiardir(\"" + archivos[i].name + "\")' class='directorio'>" + archivos[i].name + "</span><br>"; /* Aquí incrustamos código html */
 
         }
 
     }
+
+}
+
+function cambiardir(nuevaruta){ /* esta es una función que no se explicó en el curso, pero que he podido percatarme que existe por el video y por los comentarios del video */
+
+    ruta = ruta + nuevaruta + "/";
+
+    mostrar();
+
+}
+
+function volver(){
+
+    /* lo primero que vamos a hacer es obtener una referencia de dónde nos encontramos en el arbol de directorios, esto lo hacemos para saber en cuál directorio o carpeta nos encontramos, esto lo vamos a hacer con el método getDirectory */
+
+    /* El método getDirectory posee 4 argumentos */
+
+    espacio.getDirectory(ruta, null, function (dir_actual){
+        /* el argumento de esta función anónima representa lo que nos devuelve getDirectory, osea el directorio actual */
+
+        dir_actual.getParent(function(dir_padre){ /* dir_padre representa lo que nos devuelve gatParent osea el directorio padre */
+
+            /* lo que quiero que haga esta función es guardarm el directorio ruta */
+
+            ruta = dir_padre.fullPath; /* la propiedad .fullPath lo que hace es darnos la ruta completa del directorio que le hemos solicitado */
+
+            mostrar();/* se ejecuta la función mostrar() con la finalidad de que nos muestre las ruta consultada */
+
+        }, errores); /* getParent recibe 2 argumentos los cuales son, el 1ero es que tiene que hacer si tiene éxito y el 2do qué tiene que hacer si falla la ejecución del método .getParent */
+
+    }, errores);/* los parámetros que le pasamos al método getDirectory son, el primero, la ruta que ya la definimos arriba, el segundo que dependiendo si queremos crear un directorio nuevo le pasamos entre llaves lo siguiente {create:true, exclusive:false}, pero si lo que queremos es leer lo que hay en el directorio le pasamos null, el tercer parámetro representa la función que se va a ejecutar si getDirectory es ejecutado de forma satisfatoria, y el 4to parámetro representa la función que se va a ejecutar en caso de que getDirectory nos dé un error al ejecutarse */
 
 }
 
