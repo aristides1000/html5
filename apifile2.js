@@ -107,7 +107,7 @@ function modificar(){
    /*  }, errores); */ /* esto es para eliminar archivos */
 
     espacio.getDirectory(origen, null, function(archivo){
-        archivo.removeRecursively(exito, errores);
+        archivo.removeRecursively(exito, errores); /* El método .removeRecursively permite eliminar directorios o carpetas con archivos dentro */
     }, errores);
     /* Estas líneas de código funcionan para eliminar directorios con archivos dentro */
 
