@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /*Siempre es recomendable resetear el css y lo lograremos con estas lineas de código que me he descargado*/
-html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, pre, code, address, variable, form, fieldset, blockquote {
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, p, code, address, variable, form, fieldset, blockquote {
  padding: 0;
  margin: 0;
  font-size: 100%;
