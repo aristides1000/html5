@@ -45,13 +45,13 @@ function estado(){
 
 function adelantando(posicion){
 
-	var ratonX=posicion.pageX-barra.offsetLeft;
+		var ratonX=posicion.pageX-barra.offsetLeft;
 
-	var nuevoTiempo=ratonX*mivideo.duration/maximo;
+		var nuevoTiempo=ratonX*mivideo.duration/maximo;
 
-	mivideo.currentTime=nuevoTiempo;
+		mivideo.currentTime=nuevoTiempo;
 
-	progreso.style.width=ratonX+"px";
+		progreso.style.width=ratonX+"px";
 
 }
 
